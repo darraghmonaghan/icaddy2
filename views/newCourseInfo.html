@@ -18,7 +18,7 @@
         <h1>New Course Info Page</h1>
     
             <form method='POST' action='/scorecard' id='new-course'>
-                <input type="text" name='course' class="form-control" placeholder="Name of Golf Course" aria-describedby="sizing-addon2">
+                <input type="text" name='courseName' class="form-control" placeholder="Name of Golf Course" aria-describedby="sizing-addon2">
                 <table>
                     <thead>
                         <tr>
@@ -30,6 +30,10 @@
                             <td>
                                 <input type="number" name='par[]' id='1' class="form-control" placeholder="1st hole" aria-describedby="sizing-addon2" min='3' max='5'>
                             </td>
+            <!-- CAN EVENTUALLY PUT IN YARDAGE INFO, STROKE INDEX?? -->
+<!--                             <td>     
+                                <input type="number" name='par[]' id='1' class="form-control" placeholder="1st hole" aria-describedby="sizing-addon2" min='3' max='5'>
+                            </td> -->
                         </tr>
                         <tr>
                             <td>

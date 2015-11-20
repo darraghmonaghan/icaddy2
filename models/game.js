@@ -7,7 +7,8 @@ var gamesSchema = new Schema ({
   date: Date,
   course_id: Number, 
   Score: [],
-  netScore: []
+  putts: [],
+  netScore: []	// Need to consider how this will be calculated, Needs to be put into an input form? //
 });
 
 

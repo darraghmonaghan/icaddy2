@@ -3,7 +3,7 @@ var Schema = mongoose.Schema;
 
 
 var courseSchema = new Schema ({
-  name: String,
+  courseName: String,
   par: []
 });
 
