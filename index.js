@@ -74,7 +74,6 @@ app.post('/signup', function signup(req, res) {
 
 // LOGIN
 app.get("/login", function (req, res) {
-	// res.send('hello test 1')
 	var loginPath = path.join(views, 'login.html');
 	res.sendFile(loginPath);
 });
@@ -83,7 +82,6 @@ app.get("/login", function (req, res) {
 
 // PROFILE 
 app.get("/profile", function (req, res) {
-	// res.send('hello test 1')
 	var profilePath = path.join(views, 'profile.html');
 	res.sendFile(profilePath);
 });
@@ -96,13 +94,7 @@ app.get('/scorecard', function (req, res) {
 });
 
 app.post('/scorecard', function (req, res) {
-	// var par = req.body.par;
-	// var courseName = req.body.course;
 	var submission = req.body;
-	
-	// console.log(courseName);
-	// console.log(par);
-	// console.log(submission);
 
 	var newCourse = new db.Course(submission);
 
@@ -121,26 +113,40 @@ app.post('/scorecard', function (req, res) {
 
 
 // NEW SCORE 
-app.get("/newscore", function (req, res) {
-	// res.send('hello test 1')
+app.get("/:course/newscore", function (req, res) {
 	var newScorePath = path.join(views, 'newScore.html');
 	res.sendFile(newScorePath);
 });
 
-app.post("/newscore", function (req, res) {
+
+app.post("/:course/newscore", function (req, res) {
 	var date = req.body.date;
 	var score = req.body.score;
 	var putts = req.body.putts;
-	console.log(score);
-	console.log(date);
-	console.log(putts);
-	res.redirect('./profile');
+	var coursename = req.body.coursename;
+	// var course = req.params;
+
+	console.log('This is the info from Hidden Field: ' + coursename);
+
+	// var newScore = new db.Game({date: date, score: score, putts: putts});
+	// newScore.save(function (err, game) {
+	// 	if (err) {
+	// 		console.log('error submitting new score to the DB: ' + err);
+	// 	} else {
+	// 		console.log('new score successfully saved to the DB: ' + game);
+	// 	}
+	// });
+	// res.redirect('/profile');
 });
+
+
+
 
 
 // LIST OF USER COURSES
 app.get('/mycourses', function (req, res) {
 	var myCoursesPath = path.join(views, 'myCourses.html');
+	// res.send()
 	res.sendFile(myCoursesPath);
 });
 
