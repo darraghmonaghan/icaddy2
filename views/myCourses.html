@@ -17,16 +17,18 @@
 
                 <h1>List of User Courses</h1>
 
-                <div id='courseList-placeholder'></div>
+                <div>
+                    <ul id='courseList-placeholder'>
+                    </ul>
+
+                </div>
 
 
 
                 <script type="text/template" id="courseList-template">
-                    <div class="course">
-                      <p>
-                        <%= courseName %> : <%= par %> 
-                      </p>
-                    </div>
+                      <li>
+                        <%= courseName %> <%= par %> 
+                      </li>
                   </script>
 
 
