@@ -141,16 +141,27 @@ app.post("/newscore", function (req, res) {
 // LIST OF USER COURSES
 app.get('/mycourses', function (req, res) {
 	var myCoursesPath = path.join(views, 'myCourses.html');
+	res.sendFile(myCoursesPath);
+});
 
+
+
+app.get('/listOfCourses', function (req, res) {
 	var courseList = db.Course.find({}, function(err, courses) {
 		if (err) {
 			console.log('error in finding course list: ' + err);
 		} else {
-			console.log('game list successfully found: ' + courses);
+			JSON.stringify(courses);
+			console.log('game list successfully found from DB: ' + courses);
+			res.send(courses);
 		}
-	})
-	res.sendFile(myCoursesPath);
+	});	
 });
+
+
+
+
+
 
 
 
