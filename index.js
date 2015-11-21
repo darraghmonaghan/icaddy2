@@ -138,6 +138,22 @@ app.post("/newscore", function (req, res) {
 });
 
 
+// LIST OF USER COURSES
+app.get('/mycourses', function (req, res) {
+	var myCoursesPath = path.join(views, 'myCourses.html');
+
+	var courseList = db.Course.find({}, function(err, courses) {
+		if (err) {
+			console.log('error in finding course list: ' + err);
+		} else {
+			console.log('game list successfully found: ' + courses);
+		}
+	})
+	res.sendFile(myCoursesPath);
+});
+
+
+
 // FULL LIST OF SCORES 
 app.get("/scorelist", function (req, res) {
 	// res.send('hello test 1')
