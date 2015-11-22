@@ -142,34 +142,41 @@ app.post('/scorecard', function (req, res) {
 });
 
 
-// SPECIFIC COURSE INFORMATION //
-// app.get('/course.json', function (req, res) {
-// 	console.log('AJAX request received in route: ');
-// 	console.log(req.body); 
+// app.get('/:course', function (req, res) {
+// 	// console.log('route hit');
+// 	var courseID = req.params.course;
+// 	// console.log("Course ID taken from params here: " + courseID);
+	
 
-// 	var course = db.Course.find({}, function(err, course) {
-// 		if (err) {
-// 			console.log('couldnt find course: ' + err);
-// 		} else {
-// 			JSON.stringify(course);
-// 			// console.log('Course found: ' + course);
-// 			res.send(course);
-// 		}
+// 	var course = db.Course.find({_id: courseID}, function (err, course) {
+// 			if (err) {
+// 				console.log('couldnt find course: ' + err);
+// 			} else {
+// 				// JSON.stringify(course);
+// 				console.log('Course found: ' + course);
+// 			}
 // 	});
+// 	// res.send(course);
+// }); 
+
+
+
+// app.get('/:course.json', function (req, res) {
+// 	console.log('Info Here: ' + req.params.course);
+// 	res.send('Hi there');
 // });
 
-
 app.get('/:course.json', function (req, res) {
-	console.log('route hit');
-	console.log(req.body.data);
-    // var pathArray = window.pathname.split('/');
-    // var courseID = pathArray[1]; 
-
-    // console.log(courseID);
-
-	res.send('hi there');
+	var courseID = req.params.course;
+	var course = db.Course.find({_id: courseID}, function (err, course) {
+			if (err) {
+				console.log('couldnt find course: ' + err);
+			} else {
+				console.log('Course found: ' + course);
+				res.send(course);
+			}
+	});
 }); 
-
 
 
 
