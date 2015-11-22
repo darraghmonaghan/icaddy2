@@ -110,11 +110,26 @@ app.get("/profile", function userShow(req, res) {
 });
 
 // CURRENT USER INFO //
-app.get('/user.json', function (req,res) {
-	req.currentUser(function (err, user) {
-		res.send(JSON.stringify(user))
+// app.get('/user.json', function (req,res) {
+// 	req.currentUser(function (err, user) {
+// 		res.send(JSON.stringify(user))
+// 	});
+// });
+
+
+app.get('/user.json', function (req, res) {
+
+	db.User.findOne({_id: req.session.userId })        // Find current user through querying DB using SessionID //
+    .populate('gamesList')                           // Populate() converts the gameID's stored in the gamesList array into an array of game OBJECTS, with all relevant game data stored within each game object //
+    .exec(function(err, game) {
+        if (err) {
+        	return console.log(err);                  
+        } else {                                     // Stage 2. If gamesList is empty, then  do not send the gamesList Array, THIS STOPS NODEMON CRASHING //
+        	res.send(JSON.stringify(game));
+        }       
 	});
 });
+
 
 
 // NEW COURSE INFO
@@ -194,51 +209,6 @@ app.post("/:course/newscore", function (req, res) {
 			res.redirect('/profile');
 	});
 });
-
-
-
-
-
-// TAKEN FROM i-CADDY 1 //////////////////////////////////////////////////////////
-
-// app.post('/newscore', function(req, res) {
-//             var submission = req.body;
-
-//             db.User.findOne({                 // querying DB to find the current user via the Session ID //
-//                 _id: req.session.userId
-//             }, function(err, user) {
-
-//                 var newGame = new db.Game(submission);
-//                 // console.log(newGame);
-//                 newGame.save(function (err, success) {
-//                     if (err) {
-//                         return console.log(err);
-//                     }
-//                     console.log("newGame saved successfully.")
-//                 });
-//                 //	console.log(seedGame._id);
-//                 user.gamesList.push(newGame._id);
-//                 //	console.log(user.gamesList);
-//                 user.save(function(err, success) {
-//                     if (err) {
-//                         return console.log(err);
-//                     }
-//                     console.log(user.firstname + "'s new game has been entered!");
-//                 });
-//                 res.redirect('./profile');
-//             });
-// });
-
-
-
-
-
-
-
-
-
-
-
 
 
 
