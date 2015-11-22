@@ -62,7 +62,7 @@ app.post('/signup', function signup(req, res) {
 			console.log('error creating new user: ' + err);
 			res.redirect('/signup');
 		} else {
-			console.log('new user created successfully' + user);
+			console.log('new user created successfully: ' + user);
 			req.login(user);
 			res.redirect('/profile');
 		}
@@ -79,11 +79,41 @@ app.get("/login", function (req, res) {
 });
 
 
+app.post(["/sessions", "/login"], function login(req, res) {
+	var user = req.body;
+	var username = user.email;                 // Extracting username and password data //  
+	var password = user.password;              
+	db.User.authenticate(username, password, function (err, user) {
+		if (err) {
+			console.log("error in authentication");
+			res.redirect('/login');                // redirect to LOGIN page if authentication fails // 
+		} else {                                
+			req.login(user);
+			res.redirect('/profile');
+		}
+	});
+});
+
+
 
 // PROFILE 
-app.get("/profile", function (req, res) {
+app.get("/profile", function userShow(req, res) {
+	req.currentUser(function(err, user) {
+	if (err) {
+		console.log("Error finding current user: " + err);
+	} else {
+		console.log("Current User details: " + user);
+	}
 	var profilePath = path.join(views, 'profile.html');
-	res.sendFile(profilePath);
+	res.sendFile(profilePath);		
+	});	
+});
+
+// CURRENT USER INFO //
+app.get('/user.json', function (req,res) {
+	req.currentUser(function (err, user) {
+		res.send(JSON.stringify(user))
+	});
 });
 
 
@@ -112,6 +142,38 @@ app.post('/scorecard', function (req, res) {
 });
 
 
+// SPECIFIC COURSE INFORMATION //
+// app.get('/course.json', function (req, res) {
+// 	console.log('AJAX request received in route: ');
+// 	console.log(req.body); 
+
+// 	var course = db.Course.find({}, function(err, course) {
+// 		if (err) {
+// 			console.log('couldnt find course: ' + err);
+// 		} else {
+// 			JSON.stringify(course);
+// 			// console.log('Course found: ' + course);
+// 			res.send(course);
+// 		}
+// 	});
+// });
+
+
+app.get('/:course.json', function (req, res) {
+	console.log('route hit');
+	console.log(req.body.data);
+    // var pathArray = window.pathname.split('/');
+    // var courseID = pathArray[1]; 
+
+    // console.log(courseID);
+
+	res.send('hi there');
+}); 
+
+
+
+
+
 // NEW SCORE 
 app.get("/:course/newscore", function (req, res) {
 	var newScorePath = path.join(views, 'newScore.html');
@@ -128,15 +190,15 @@ app.post("/:course/newscore", function (req, res) {
 
 	console.log('This is the info from Hidden Field: ' + coursename);
 
-	// var newScore = new db.Game({date: date, score: score, putts: putts});
-	// newScore.save(function (err, game) {
-	// 	if (err) {
-	// 		console.log('error submitting new score to the DB: ' + err);
-	// 	} else {
-	// 		console.log('new score successfully saved to the DB: ' + game);
-	// 	}
-	// });
-	// res.redirect('/profile');
+	var newScore = new db.Game({date: date, score: score, putts: putts, course_id: coursename});
+	newScore.save(function (err, game) {
+		if (err) {
+			console.log('error submitting new score to the DB: ' + err);
+		} else {
+			console.log('new score successfully saved to the DB: ' + game);
+		}
+	});
+	res.redirect('/profile');
 });
 
 
@@ -155,10 +217,10 @@ app.get('/mycourses', function (req, res) {
 app.get('/listOfCourses', function (req, res) {
 	var courseList = db.Course.find({}, function(err, courses) {
 		if (err) {
-			console.log('error in finding course list: ' + err);
+			// console.log('error in finding course list: ' + err);
 		} else {
 			JSON.stringify(courses);
-			console.log('game list successfully found from DB: ' + courses);
+			// console.log('game list successfully found from DB: ' + courses);
 			res.send(courses);
 		}
 	});	
