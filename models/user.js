@@ -10,8 +10,8 @@ var userSchema = new Schema ({
 	surname: {type: String, required: true},
 	email: {type: String, required: true},
 	passwordDigest: {type: String, required: true},
-	courseList: [{type: Schema.Types.ObjectId, ref: 'Course'}]
-	// gamesList: [{type: Schema.Types.ObjectId, ref: 'Game'}]
+	courseList: [{type: Schema.Types.ObjectId, ref: 'Course'}],
+	gamesList: [{type: Schema.Types.ObjectId, ref: 'Game'}]
 });
 
 

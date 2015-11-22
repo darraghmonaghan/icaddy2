@@ -142,30 +142,6 @@ app.post('/scorecard', function (req, res) {
 });
 
 
-// app.get('/:course', function (req, res) {
-// 	// console.log('route hit');
-// 	var courseID = req.params.course;
-// 	// console.log("Course ID taken from params here: " + courseID);
-	
-
-// 	var course = db.Course.find({_id: courseID}, function (err, course) {
-// 			if (err) {
-// 				console.log('couldnt find course: ' + err);
-// 			} else {
-// 				// JSON.stringify(course);
-// 				console.log('Course found: ' + course);
-// 			}
-// 	});
-// 	// res.send(course);
-// }); 
-
-
-
-// app.get('/:course.json', function (req, res) {
-// 	console.log('Info Here: ' + req.params.course);
-// 	res.send('Hi there');
-// });
-
 app.get('/:course.json', function (req, res) {
 	var courseID = req.params.course;
 	var course = db.Course.find({_id: courseID}, function (err, course) {
@@ -193,20 +169,76 @@ app.post("/:course/newscore", function (req, res) {
 	var score = req.body.score;
 	var putts = req.body.putts;
 	var coursename = req.body.coursename;
-	// var course = req.params;
 
-	console.log('This is the info from Hidden Field: ' + coursename);
+    db.User.findOne({                 // querying DB to find the current user via the Session ID //
+                _id: req.session.userId
+            }, function(err, user) {
 
-	var newScore = new db.Game({date: date, score: score, putts: putts, course_id: coursename});
-	newScore.save(function (err, game) {
-		if (err) {
-			console.log('error submitting new score to the DB: ' + err);
-		} else {
-			console.log('new score successfully saved to the DB: ' + game);
-		}
+			var newScore = new db.Game({date: date, score: score, putts: putts, course_id: coursename});
+			newScore.save(function (err, game) {
+				if (err) {
+					console.log('error submitting new score to the DB: ' + err);
+				} else {
+					console.log('new score successfully saved to the DB: ' + game);
+				}
+			});
+			//	console.log(seedGame._id);
+            user.gamesList.push(newScore._id);
+            //	console.log(user.gamesList);
+            user.save(function(err, success) {
+                    if (err) {
+                        return console.log(err);
+                    }
+                    console.log(user.firstname + "'s new game has been entered!");
+                });
+			res.redirect('/profile');
 	});
-	res.redirect('/profile');
 });
+
+
+
+
+
+// TAKEN FROM i-CADDY 1 //////////////////////////////////////////////////////////
+
+// app.post('/newscore', function(req, res) {
+//             var submission = req.body;
+
+//             db.User.findOne({                 // querying DB to find the current user via the Session ID //
+//                 _id: req.session.userId
+//             }, function(err, user) {
+
+//                 var newGame = new db.Game(submission);
+//                 // console.log(newGame);
+//                 newGame.save(function (err, success) {
+//                     if (err) {
+//                         return console.log(err);
+//                     }
+//                     console.log("newGame saved successfully.")
+//                 });
+//                 //	console.log(seedGame._id);
+//                 user.gamesList.push(newGame._id);
+//                 //	console.log(user.gamesList);
+//                 user.save(function(err, success) {
+//                     if (err) {
+//                         return console.log(err);
+//                     }
+//                     console.log(user.firstname + "'s new game has been entered!");
+//                 });
+//                 res.redirect('./profile');
+//             });
+// });
+
+
+
+
+
+
+
+
+
+
+
 
 
 
