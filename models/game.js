@@ -9,6 +9,8 @@ var gamesSchema = new Schema ({
   score: [],
   putts: [],
   // netScore: []	// Need to consider how this will be calculated, Needs to be put into an input form? //
+  // NEED TO PUT COURSE NAME HERE????
+  courseName: String
 });
 
 

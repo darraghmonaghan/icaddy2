@@ -120,7 +120,8 @@ app.get("/profile", function userShow(req, res) {
 app.get('/user.json', function (req, res) {
 
 	db.User.findOne({_id: req.session.userId })        // Find current user through querying DB using SessionID //
-    .populate('gamesList')                           // Populate() converts the gameID's stored in the gamesList array into an array of game OBJECTS, with all relevant game data stored within each game object //
+    .populate('gamesList')
+    .populate('courseList')                           // Populate() converts the gameID's stored in the gamesList array into an array of game OBJECTS, with all relevant game data stored within each game object //
     .exec(function(err, game) {
         if (err) {
         	return console.log(err);                  
@@ -183,13 +184,14 @@ app.post("/:course/newscore", function (req, res) {
 	var date = req.body.date;
 	var score = req.body.score;
 	var putts = req.body.putts;
-	var coursename = req.body.coursename;
+	var courseID = req.body.courseID;
+	var courseName = req.body.courseName;
 
     db.User.findOne({                 // querying DB to find the current user via the Session ID //
                 _id: req.session.userId
             }, function(err, user) {
 
-			var newScore = new db.Game({date: date, score: score, putts: putts, course_id: coursename});
+			var newScore = new db.Game({date: date, score: score, putts: putts, course_id: courseID, courseName: courseName});
 			newScore.save(function (err, game) {
 				if (err) {
 					console.log('error submitting new score to the DB: ' + err);
@@ -199,6 +201,7 @@ app.post("/:course/newscore", function (req, res) {
 			});
 			//	console.log(seedGame._id);
             user.gamesList.push(newScore._id);
+            user.courseList.push(newScore.coursename);
             //	console.log(user.gamesList);
             user.save(function(err, success) {
                     if (err) {
