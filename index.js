@@ -151,20 +151,28 @@ app.get('/scorecard', function (req, res) {
 
 app.post('/scorecard', function (req, res) {
 	var submission = req.body;
-
 	var newCourse = new db.Course(submission);
 
-	newCourse.save(function (err, course) {
-		if (err) {
-			console.log('error creating new course: ' + err);
-		} else {
-			console.log('new course created successfully: ' + course);
-		} 
+    db.User.findOne({                 // querying DB to find the current user via the Session ID //
+                _id: req.session.userId
+            }, function(err, user) {
+
+			newCourse.save(function (err, course) {
+				if (err) {
+					console.log('error submitting new score to the DB: ' + err);
+				} else {
+					console.log('new score successfully saved to the DB: ' + course);
+				}
+			});
+            user.courseList.push(newCourse._id);
+            user.save(function(err, success) {
+                    if (err) {
+                        return console.log(err);
+                    }
+                    console.log(user.firstname + "'s new game has been entered!");
+                });
+			res.redirect('/profile');
 	});
-	res.redirect('./profile');
-
-	// Need to push Course ID to the users courseList [];
-
 });
 
 
@@ -214,8 +222,8 @@ app.post("/:course/newscore", function (req, res) {
 				}
 			});
 			//	console.log(seedGame._id);
-            user.gamesList.push(newScore._id);
-            user.courseList.push(newScore.coursename);
+            user.gamesList.push(newScore._id);		// Push the ID of the game to the User profile //
+            // user.courseList.push(newScore.coursename);
             //	console.log(user.gamesList);
             user.save(function(err, success) {
                     if (err) {
