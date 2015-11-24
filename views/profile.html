@@ -58,7 +58,6 @@
                         </table>
                 </div>
 
-
     </body>
 </html>
 
@@ -68,8 +67,8 @@
                 <tr>
 
                     <td> <%= date %> </td>
-                    <td> <%= courseName %> </td>
-                    <td> <%= totalScore %> </td>
+                    <td> <a href="/<%= course_id %><%= courseName %>"><%= courseName %> </td>
+                    <td> <a href="/<%= _id %><%= courseName %>"><%= totalScore %> </td>
                     <td> <div class="btn-group btn-group-xs close" role="group" aria-label="..." onclick='deleteScore(this)' data-id=<%= _id %> >X</div> </td>
 
                 </tr>

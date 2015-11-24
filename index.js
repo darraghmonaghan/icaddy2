@@ -42,6 +42,11 @@ app.use(function (req, res, next) {
 });
 
 
+app.get('/', function (req, res) {			// Auto redirect to Login Page //
+	res.redirect('/login');
+})
+
+
 // SIGN UP
 app.get("/signup", function (req, res) {
 	// res.send('hello test 1')
@@ -70,6 +75,11 @@ app.post('/signup', function signup(req, res) {
 });
 
 
+// LOGOUT
+app.get('/logout', function (req, res) {
+		req.logout()                                      // Execute logout() and redirect to Login / Homepage //
+		res.redirect('/login');
+});
 
 
 // LOGIN
@@ -122,7 +132,7 @@ app.get('/user.json', function (req, res) {
 	db.User.findOne({_id: req.session.userId })        // Find current user through querying DB using SessionID //
     .populate('gamesList')
     .populate('courseList')                           // Populate() converts the gameID's stored in the gamesList array into an array of game OBJECTS, with all relevant game data stored within each game object //
-    .exec(function(err, game) {
+    .exec(function (err, game) {
         if (err) {
         	return console.log(err);                  
         } else {                                     // Stage 2. If gamesList is empty, then  do not send the gamesList Array, THIS STOPS NODEMON CRASHING //
@@ -190,8 +200,6 @@ app.post("/:course/newscore", function (req, res) {
 		return parseInt(a) + parseInt(b);
 	});
 
-	// console.log('Raw score here: ' + score);
-	// console.log('Total Score generated was: ' + totalScore);
 
     db.User.findOne({                 // querying DB to find the current user via the Session ID //
                 _id: req.session.userId
@@ -242,6 +250,7 @@ app.get('/mycourses', function (req, res) {
 
 
 app.get('/listOfCourses', function (req, res) {
+
 	var courseList = db.Course.find({}, function(err, courses) {
 		if (err) {
 			// console.log('error in finding course list: ' + err);
@@ -269,15 +278,15 @@ app.get("/scorelist", function (req, res) {
 
 
 // INDIVIDUAL SCORE DETAILS 
-app.get("/round", function (req, res) {
+app.get("/:round", function (req, res) {
 	// res.send('hello test 1')
 	var roundInfoPath = path.join(views, 'scorePage.html');
 	res.sendFile(roundInfoPath);
 });
 
 
-// COURSE DETAILS
-app.get("/course", function (req, res) {
+// SPECIFIC COURSE PERFORMANCE
+app.get("/:course", function (req, res) {
 	// res.send('hello test 1')
 	var courseInfoPath = path.join(views, 'course.html');
 	res.sendFile(courseInfoPath);
