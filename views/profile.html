@@ -47,9 +47,10 @@
                                 <tr>
 
                                     <td>Date</td>
-                                    <td>Course Name</td>
+                                    <td>Course</td>
                                     <td>Gross Score</td>
-                                    <td>Putts</td>
+                                    <td>Delete</td>
+
 
                                 </tr>
                             </thead>
@@ -68,8 +69,8 @@
 
                     <td> <%= date %> </td>
                     <td> <%= courseName %> </td>
-                    <td> <%= score %> </td>  
-                    <td> <%= putts %> </td>  
+                    <td> <%= totalScore %> </td>
+                    <td> <div class="btn-group btn-group-xs close" role="group" aria-label="..." onclick='deleteScore(this)' data-id=<%= _id %> >X</div> </td>
 
                 </tr>
       </script>

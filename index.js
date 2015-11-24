@@ -186,12 +186,18 @@ app.post("/:course/newscore", function (req, res) {
 	var putts = req.body.putts;
 	var courseID = req.body.courseID;
 	var courseName = req.body.courseName;
+	var totalScore = score.reduce(function (a, b) {
+		return parseInt(a) + parseInt(b);
+	});
+
+	// console.log('Raw score here: ' + score);
+	// console.log('Total Score generated was: ' + totalScore);
 
     db.User.findOne({                 // querying DB to find the current user via the Session ID //
                 _id: req.session.userId
             }, function(err, user) {
 
-			var newScore = new db.Game({date: date, score: score, putts: putts, course_id: courseID, courseName: courseName});
+			var newScore = new db.Game({date: date, score: score, putts: putts, course_id: courseID, courseName: courseName, totalScore: totalScore});
 			newScore.save(function (err, game) {
 				if (err) {
 					console.log('error submitting new score to the DB: ' + err);
@@ -214,7 +220,16 @@ app.post("/:course/newscore", function (req, res) {
 });
 
 
-
+// DELETE A SPECIFIC GAME
+app.delete("/games", function (req, res) {
+  	//console.log(req.headers.id);             // testing to see the reciept of game ID in header, sent over vai AJAX request on Delete function //         
+  	var deleteID = req.headers.id;             // set game ID to a variable for use //
+  	db.Game.find( {_id : deleteID }, function (err, game) {      // Stage 1. Querying the DB to find the relevant game using GameID //
+  		console.log('Game Found' + game);
+  	}).remove(function (err, deleted) {                          // Stage 2. Chaining the remove() on to stage.1 in order to DELETE the GameID // 
+  		console.log('Successfully deleted' + deleted);
+  	});
+});
 
 
 // LIST OF USER COURSES
