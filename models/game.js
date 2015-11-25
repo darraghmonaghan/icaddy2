@@ -11,7 +11,8 @@ var gamesSchema = new Schema ({
   // netScore: []	// Need to consider how this will be calculated, Needs to be put into an input form? //
   // NEED TO PUT COURSE NAME HERE????
   courseName: String,
-  totalScore: Number
+  totalScore: Number,
+  totalPutts: Number
 });
 
 

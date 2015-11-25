@@ -180,7 +180,7 @@ app.get('/:course.json', function (req, res) {
 	var courseID = req.params.course;
 	var course = db.Course.find({_id: courseID}, function (err, course) {
 			if (err) {
-				console.log('couldnt find course: ' + err);
+				console.log('Couldnt find course: ' + err);
 			} else {
 				console.log('Course found: ' + course);
 				res.send(course);
@@ -207,13 +207,16 @@ app.post("/:course/newscore", function (req, res) {
 	var totalScore = score.reduce(function (a, b) {
 		return parseInt(a) + parseInt(b);
 	});
+	var totalPutts = putts.reduce(function (a, b) {
+		return parseInt(a) + parseInt(b);
+	})
 
 
     db.User.findOne({                 // querying DB to find the current user via the Session ID //
                 _id: req.session.userId
             }, function(err, user) {
 
-			var newScore = new db.Game({date: date, score: score, putts: putts, course_id: courseID, courseName: courseName, totalScore: totalScore});
+			var newScore = new db.Game({date: date, score: score, putts: putts, course_id: courseID, courseName: courseName, totalScore: totalScore, totalPutts: totalPutts});
 			newScore.save(function (err, game) {
 				if (err) {
 					console.log('error submitting new score to the DB: ' + err);
