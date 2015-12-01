@@ -52,15 +52,16 @@
           </nav>
             
 
-
-
-        <h1>New Score Page</h1>
-
         <h3 id='courseName'>Course: </h3>
     
             <form method='POST' action='/:course/newscore' id='new-score'>
    
-                <input placeholder="Date of Round" class="textbox-n" type="" onfocus="(this.type='date')" onblur="(this.type='text')" id="date" name='date' required='true'>
+
+
+            <div class="input-group input-group">
+                <span class="input-group-addon" id="sizing-addon1">Date of Game:</span>
+                <input placeholder="Date of Round" class="form-control" type="" onfocus="(this.type='date')" onblur="(this.type='text')" id="date" name='date' required='true'>
+            </div><br>
 
                 <input type="hidden" id="courseID" name='courseID' value=''>
                 <input type="hidden" id="courseNameVal" name='courseName' value=''>       
