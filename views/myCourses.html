@@ -53,21 +53,18 @@
             
 
 
-
-                <h1>List of User Courses</h1>
-
-                <div>
-                    <ul id='courseList-placeholder'>
-                    </ul>
-
+                <div class='list-group' id='courseList-placeholder'>
+                        <p class='list-group-item disabled'>Select your course:</p>
                 </div>
+
+                <div class="well well-sm"><a href='/newscorecard'>Add a scorecard for a new course</a></div>
 
 
 
                 <script type="text/template" id="courseList-template">
-                      <li>
-                        <a href='/<%= _id %>/newscore' data-id='<%= _id %>'><%= coursename %></a>
-                      </li>
+      
+                        <a href='/<%= _id %>/newscore' class='list-group-item' data-id='<%= _id %>'><%= coursename %></a>
+                
                   </script>
 
 
