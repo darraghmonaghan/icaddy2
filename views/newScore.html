@@ -50,13 +50,12 @@
               </div><!-- /.navbar-collapse -->
             </div><!-- /.container-fluid -->
           </nav>
-            
+          
 
-        <h3 id='courseName'>Course: </h3>
-    
-            <form method='POST' action='/:course/newscore' id='new-score'>
-   
+          <h3 id='courseName'>Course: </h3>
 
+
+          <form method='POST' action='/:course/newscore' id='new-score'>
 
             <div class="input-group input-group">
                 <span class="input-group-addon" id="sizing-addon1">Date of Game:</span>
@@ -64,204 +63,141 @@
             </div><br>
 
                 <input type="hidden" id="courseID" name='courseID' value=''>
-                <input type="hidden" id="courseNameVal" name='courseName' value=''>       
+                <input type="hidden" id="courseNameVal" name='courseName' value=''><br>
 
-                <table>
-                    <thead>
-                        <tr>
-                            <td>Hole No.</td>
-                            <td>Par</td>
-                            <td>Score</td>
-                            <td>No. of Putts</td>
-                            <td>Net Score</td>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td id='par1'></td>
-                            <td>
-                                <input type="number" name='score[]' id='1' class="form-control" placeholder="1st hole" aria-describedby="sizing-addon2" min='1' max='10' required='true'>
-                            </td>
-                            <td>
-                                <input type="number" name='putts[]' class="form-control" placeholder="1st hole" aria-describedby="sizing-addon2" min='0' max='10' required='true'>
-                            </td>
-                            <td>Net Score Here: </td>                            
-                        </tr>
-                        <tr>
-                            <td><p>1</p></td>
-                            <td id='par2'></td>
-                            <td>
-                                <input type="number" name='score[]' id='2' class="form-control" placeholder="2nd hole" aria-describedby="sizing-addon2" min='1' max='10' required='true'>
-                            </td>
-                            <td>
-                                <input type="number" name='putts[]' class="form-control" placeholder="1st hole" aria-describedby="sizing-addon2" min='0' max='10' required='true'>
-                            </td>                             
-                        </tr>
-                        <tr>
-                            <td><p>1</p></td>
-                            <td id='par3'></td>
-                            <td>
-                                <input type="number" name='score[]' id='3' class="form-control" placeholder="3rd hole" aria-describedby="sizing-addon2" min='1' max='10' required='true'>
-                            </td>
-                            <td>
-                                <input type="number" name='putts[]' class="form-control" placeholder="1st hole" aria-describedby="sizing-addon2" min='0' max='10' required='true'>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td><p>1</p></td>
-                            <td id='par4'></td>
-                            <td>
-                                <input type="number" name='score[]' id='4' class="form-control" placeholder="4th hole" aria-describedby="sizing-addon2" min='1' max='10' required='true'>
-                            </td>
-                            <td>
-                                <input type="number" name='putts[]' class="form-control" placeholder="1st hole" aria-describedby="sizing-addon2" min='0' max='10' required='true'>
-                            </td>                             
-                        </tr>
-                        <tr>
-                            <td><p>1</p></td>
-                            <td id='par5'></td>
-                            <td>
-                                <input type="number" name='score[]' id='5' class="form-control" placeholder="5th hole" aria-describedby="sizing-addon2" min='1' max='10' required='true'>
-                            </td>
-                            <td>
-                                <input type="number" name='putts[]' class="form-control" placeholder="1st hole" aria-describedby="sizing-addon2" min='0' max='10' required='true'>
-                            </td>                             
-                        </tr>
-                        <tr>
-                            <td><p>1</p></td>
-                            <td id='par6'></td>
-                            <td>
-                                <input type="number" name='score[]' id='6' class="form-control" placeholder="" aria-describedby="sizing-addon2" min='1' max='10' required='true'>
-                            </td>
-                            <td>
-                                <input type="number" name='putts[]' class="form-control" placeholder="1st hole" aria-describedby="sizing-addon2" min='0' max='10' required='true'>
-                            </td>                             
-                        </tr>
-                        <tr>
-                            <td><p>1</p></td>
-                            <td id='par7'></td>
-                            <td>
-                                <input type="number" name='score[]' id='7' class="form-control" placeholder="" aria-describedby="sizing-addon2" min='1' max='10' required='true'>
-                            </td>
-                            <td>
-                                <input type="number" name='putts[]' class="form-control" placeholder="1st hole" aria-describedby="sizing-addon2" min='0' max='10' required='true'>
-                            </td>                             
-                        </tr>
-                        <tr>
-                            <td><p>1</p></td>
-                            <td id='par8'></td>
-                            <td>
-                                <input type="number" name='score[]' id='8' class="form-control" placeholder="" aria-describedby="sizing-addon2" min='1' max='10' required='true'>
-                            </td>
-                            <td>
-                                <input type="number" name='putts[]' class="form-control" placeholder="1st hole" aria-describedby="sizing-addon2" min='0' max='10' required='true'>
-                            </td>                             
-                        </tr>
-                        <tr>
-                            <td><p>1</p></td>
-                            <td id='par9'></td>
-                            <td>
-                                <input type="number" name='score[]' id='9' class="form-control" placeholder="" aria-describedby="sizing-addon2" min='1' max='10' required='true'>
-                            </td>
-                            <td>
-                                <input type="number" name='putts[]' class="form-control" placeholder="1st hole" aria-describedby="sizing-addon2" min='0' max='10' required='true'>
-                            </td>                             
-                        </tr>
-                        <tr>
-                            <td><p>1</p></td>
-                            <td id='par10'></td>
-                            <td>
-                                <input type="number" name='score[]' id='10' class="form-control" placeholder="" aria-describedby="sizing-addon2" min='1' max='10' required='true'>
-                            </td>
-                            <td>
-                                <input type="number" name='putts[]' class="form-control" placeholder="1st hole" aria-describedby="sizing-addon2" min='0' max='10' required='true'>
-                            </td>                             
-                        </tr>
-                        <tr>
-                            <td><p>1</p></td>
-                            <td id='par11'></td>
-                            <td>
-                                <input type="number" name='score[]' id='11' class="form-control" placeholder="" aria-describedby="sizing-addon2" min='1' max='10' required='true'>
-                            </td>
-                            <td>
-                                <input type="number" name='putts[]' class="form-control" placeholder="1st hole" aria-describedby="sizing-addon2" min='0' max='10' required='true'>
-                            </td>                             
-                        </tr>
-                        <tr>
-                            <td><p>1</p></td>
-                            <td id='par12'></td>
-                            <td>
-                                <input type="number" name='score[]' id='12' class="form-control" placeholder="" aria-describedby="sizing-addon2" min='1' max='10' required='true'>
-                            </td>
-                            <td>
-                                <input type="number" name='putts[]' class="form-control" placeholder="1st hole" aria-describedby="sizing-addon2" min='0' max='10' required='true'>
-                            </td>                             
-                        </tr>
-                        <tr>
-                            <td><p>1</p></td>
-                            <td id='par13'></td>
-                            <td>
-                                <input type="number" name='score[]' id='13' class="form-control" placeholder="" aria-describedby="sizing-addon2" min='1' max='10' required='true'>
-                            </td>
-                            <td>
-                                <input type="number" name='putts[]' class="form-control" placeholder="1st hole" aria-describedby="sizing-addon2" min='0' max='10' required='true'>
-                            </td>                             
-                        </tr>                                                
-                        <tr>
-                            <td><p>1</p></td>
-                            <td id='par14'></td>
-                            <td>
-                                <input type="number" name='score[]' id='14' class="form-control" placeholder="" aria-describedby="sizing-addon2" min='1' max='10' required='true'>
-                            </td>
-                            <td>
-                                <input type="number" name='putts[]' class="form-control" placeholder="1st hole" aria-describedby="sizing-addon2" min='0' max='10' required='true'>
-                            </td>                             
-                        </tr>
-                        <tr>
-                            <td><p>1</p></td>
-                            <td id='par15'></td>
-                            <td>
-                                <input type="number" name='score[]' id='15' class="form-control" placeholder="" aria-describedby="sizing-addon2" min='1' max='10' required='true'>
-                            </td>
-                            <td>
-                                <input type="number" name='putts[]' class="form-control" placeholder="1st hole" aria-describedby="sizing-addon2" min='0' max='10' required='true'>
-                            </td>                             
-                        </tr>
-                        <tr>
-                            <td><p>1</p></td>
-                            <td id='par16'></td>
-                            <td>
-                                <input type="number" name='score[]' id='16' class="form-control" placeholder="" aria-describedby="sizing-addon2" min='1' max='10' required='true'>
-                            </td>
-                            <td>
-                                <input type="number" name='putts[]' class="form-control" placeholder="1st hole" aria-describedby="sizing-addon2" min='0' max='10' required='true'>
-                            </td>                             
-                        </tr>
-                        <tr>
-                            <td><p>1</p></td>
-                            <td id='par17'></td>
-                            <td>
-                                <input type="number" name='score[]' id='17' class="form-control" placeholder="" aria-describedby="sizing-addon2" min='1' max='10' required='true'>
-                            </td>
-                            <td>
-                                <input type="number" name='putts[]' class="form-control" placeholder="1st hole" aria-describedby="sizing-addon2" min='0' max='10' required='true'>
-                            </td>                             
-                        </tr>
-                        <tr>
-                            <td><p>1</p></td>
-                            <td id='par18'></td>
-                            <td>
-                                <input type="number" name='score[]' id='18' class="form-control" placeholder="" aria-describedby="sizing-addon2" min='1' max='10' required='true'>
-                            </td>
-                            <td>
-                                <input type="number" name='putts[]' class="form-control" placeholder="1st hole" aria-describedby="sizing-addon2" min='0' max='10' required='true'>
-                            </td>                             
-                        </tr>
-                    </tbody>
-                </table>
-                <button class="btn btn-default">Submit Score</button>
-            </form>  
+                        <table class='table'>
+
+                                <div class='row'>
+
+
+                                        <div class='col-xs-3 col-md-1'>
+
+                                               <!-- Hole Number 1 - 18 -->
+                                               <p class='well well-sm'>1</p>
+                                               <p class='well well-sm'>2</p>
+                                               <p class='well well-sm'>3</p>
+                                               <p class='well well-sm'>4</p>
+                                               <p class='well well-sm'>5</p>
+                                               <p class='well well-sm'>6</p>
+                                               <p class='well well-sm'>7</p>
+                                               <p class='well well-sm'>8</p>
+                                               <p class='well well-sm'>9</p>
+                                               <p class='well well-sm'>10</p>                                       
+                                               <p class='well well-sm'>11</p>
+                                               <p class='well well-sm'>12</p>
+                                               <p class='well well-sm'>13</p>
+                                               <p class='well well-sm'>14</p>
+                                               <p class='well well-sm'>15</p>
+                                               <p class='well well-sm'>16</p>
+                                               <p class='well well-sm'>17</p>
+                                               <p class='well well-sm'>18</p>
+                                        </div>
+
+                                        <div class='col-xs-3 col-md-1'>
+
+                                                <!-- Par for Holes 1 - 18 -->
+                                                <p class='well well-sm' id='par1'></p>
+                                                <p class='well well-sm' id='par2'></p>
+                                                <p class='well well-sm' id='par3'></p>
+                                                <p class='well well-sm' id='par4'></p>
+                                                <p class='well well-sm' id='par5'></p>
+                                                <p class='well well-sm' id='par6'></p>
+                                                <p class='well well-sm' id='par7'></p>
+                                                <p class='well well-sm' id='par8'></p>
+                                                <p class='well well-sm' id='par9'></p>
+                                                <p class='well well-sm' id='par10'></p>
+                                                <p class='well well-sm' id='par11'></p>
+                                                <p class='well well-sm' id='par12'></p>
+                                                <p class='well well-sm' id='par13'></p>
+                                                <p class='well well-sm' id='par14'></p>
+                                                <p class='well well-sm' id='par15'></p>
+                                                <p class='well well-sm' id='par16'></p>
+                                                <p class='well well-sm' id='par17'></p>
+                                                <p class='well well-sm' id='par18'></p>                                                                                                
+                                        </div>
+
+                                        <div class='col-xs-3 col-md-1'>
+
+                                                <!-- Score for Holes 1 - 9 -->
+                                                <input type="number" name='score[]' id='score1' class="form-control" placeholder="1st hole" aria-describedby="sizing-addon2" min='1' max='10' required='true' onclick='calc()'>
+                                                <input type="number" name='score[]' id='score2' class="form-control" placeholder="1st hole" aria-describedby="sizing-addon2" min='1' max='10' required='true'>
+                                                <input type="number" name='score[]' id='score3' class="form-control" placeholder="1st hole" aria-describedby="sizing-addon2" min='1' max='10' required='true'>
+                                                <input type="number" name='score[]' id='score4' class="form-control" placeholder="1st hole" aria-describedby="sizing-addon2" min='1' max='10' required='true'>
+                                                <input type="number" name='score[]' id='score5' class="form-control" placeholder="1st hole" aria-describedby="sizing-addon2" min='1' max='10' required='true'>
+                                                <input type="number" name='score[]' id='score6' class="form-control" placeholder="1st hole" aria-describedby="sizing-addon2" min='1' max='10' required='true'>
+                                                <input type="number" name='score[]' id='score7' class="form-control" placeholder="1st hole" aria-describedby="sizing-addon2" min='1' max='10' required='true'>
+                                                <input type="number" name='score[]' id='score8' class="form-control" placeholder="1st hole" aria-describedby="sizing-addon2" min='1' max='10' required='true'>
+                                                <input type="number" name='score[]' id='score9' class="form-control" placeholder="1st hole" aria-describedby="sizing-addon2" min='1' max='10' required='true'>
+                                                <input type="number" name='score[]' id='score10' class="form-control" placeholder="1st hole" aria-describedby="sizing-addon2" min='1' max='10' required='true'>
+                                                <input type="number" name='score[]' id='score11' class="form-control" placeholder="1st hole" aria-describedby="sizing-addon2" min='1' max='10' required='true'>
+                                                <input type="number" name='score[]' id='score12' class="form-control" placeholder="1st hole" aria-describedby="sizing-addon2" min='1' max='10' required='true'>
+                                                <input type="number" name='score[]' id='score13' class="form-control" placeholder="1st hole" aria-describedby="sizing-addon2" min='1' max='10' required='true'>
+                                                <input type="number" name='score[]' id='score14' class="form-control" placeholder="1st hole" aria-describedby="sizing-addon2" min='1' max='10' required='true'>
+                                                <input type="number" name='score[]' id='score15' class="form-control" placeholder="1st hole" aria-describedby="sizing-addon2" min='1' max='10' required='true'>
+                                                <input type="number" name='score[]' id='score16' class="form-control" placeholder="1st hole" aria-describedby="sizing-addon2" min='1' max='10' required='true'>
+                                                <input type="number" name='score[]' id='score17' class="form-control" placeholder="1st hole" aria-describedby="sizing-addon2" min='1' max='10' required='true'>
+                                                <input type="number" name='score[]' id='score18' class="form-control" placeholder="1st hole" aria-describedby="sizing-addon2" min='1' max='10' required='true'>
+
+                                        </div>
+
+
+                                        <div class='col-xs-3 col-md-1'>
+
+                                                <!-- Number of Putts Holes 1 - 18 -->
+                                                <input type="number" name='putts[]' id='putts1' class="form-control" placeholder="1st hole" aria-describedby="sizing-addon2" min='1' max='10' required='true'>
+                                                <input type="number" name='putts[]' id='putts2' class="form-control" placeholder="1st hole" aria-describedby="sizing-addon2" min='1' max='10' required='true'>
+                                                <input type="number" name='putts[]' id='putts3' class="form-control" placeholder="1st hole" aria-describedby="sizing-addon2" min='1' max='10' required='true'>
+                                                <input type="number" name='putts[]' id='putts4' class="form-control" placeholder="1st hole" aria-describedby="sizing-addon2" min='1' max='10' required='true'>
+                                                <input type="number" name='putts[]' id='putts5' class="form-control" placeholder="1st hole" aria-describedby="sizing-addon2" min='1' max='10' required='true'>
+                                                <input type="number" name='putts[]' id='putts6' class="form-control" placeholder="1st hole" aria-describedby="sizing-addon2" min='1' max='10' required='true'>
+                                                <input type="number" name='putts[]' id='putts7' class="form-control" placeholder="1st hole" aria-describedby="sizing-addon2" min='1' max='10' required='true'>
+                                                <input type="number" name='putts[]' id='putts8' class="form-control" placeholder="1st hole" aria-describedby="sizing-addon2" min='1' max='10' required='true'>
+                                                <input type="number" name='putts[]' id='putts9' class="form-control" placeholder="1st hole" aria-describedby="sizing-addon2" min='1' max='10' required='true'>
+                                                <input type="number" name='putts[]' id='putts10' class="form-control" placeholder="1st hole" aria-describedby="sizing-addon2" min='1' max='10' required='true'>
+                                                <input type="number" name='putts[]' id='putts11' class="form-control" placeholder="1st hole" aria-describedby="sizing-addon2" min='1' max='10' required='true'>
+                                                <input type="number" name='putts[]' id='putts12' class="form-control" placeholder="1st hole" aria-describedby="sizing-addon2" min='1' max='10' required='true'>
+                                                <input type="number" name='putts[]' id='putts13' class="form-control" placeholder="1st hole" aria-describedby="sizing-addon2" min='1' max='10' required='true'>
+                                                <input type="number" name='putts[]' id='putts14' class="form-control" placeholder="1st hole" aria-describedby="sizing-addon2" min='1' max='10' required='true'>
+                                                <input type="number" name='putts[]' id='putts15' class="form-control" placeholder="1st hole" aria-describedby="sizing-addon2" min='1' max='10' required='true'>
+                                                <input type="number" name='putts[]' id='putts16' class="form-control" placeholder="1st hole" aria-describedby="sizing-addon2" min='1' max='10' required='true'>
+                                                <input type="number" name='putts[]' id='putts17' class="form-control" placeholder="1st hole" aria-describedby="sizing-addon2" min='1' max='10' required='true'>
+                                                <input type="number" name='putts[]' id='putts18' class="form-control" placeholder="1st hole" aria-describedby="sizing-addon2" min='1' max='10' required='true'>
+
+                                        </div>
+
+                                        <div class='col-xs-3 col-md-1'>
+
+                                                <!-- Nett Score for 1 - 18 -->
+
+                                            <p class='well well-sm' id='nett1'></p>
+                                            <p class='well well-sm' id='nett2'></p>
+                                            <p class='well well-sm' id='nett3'></p>
+                                            <p class='well well-sm' id='nett4'></p>
+                                            <p class='well well-sm' id='nett5'></p>
+                                            <p class='well well-sm' id='nett6'></p>                                 <p class='well well-sm' id='nett7'></p>
+                                            <p class='well well-sm' id='nett8'></p>                
+                                            <p class='well well-sm' id='nett9'></p>                         
+                                            <p class='well well-sm' id='nett10'></p>
+                                            <p class='well well-sm' id='nett11'></p>
+                                            <p class='well well-sm' id='nett12'></p>
+                                            <p class='well well-sm' id='nett13'></p>
+                                            <p class='well well-sm' id='nett14'></p>
+                                            <p class='well well-sm' id='nett15'></p>                                <p class='well well-sm' id='nett16'></p>
+                                            <p class='well well-sm' id='nett17'></p>
+                                            <p class='well well-sm' id='nett18'></p>
+
+                                        </div>
+
+                                </div>
+
+                        </table><br>
+                        <button class="btn btn-default">Submit Scorecard Template</button>
+                    </form>
+
+
+
+
+
 
     </div> <!-- for container class -->
 
@@ -301,6 +237,19 @@
                 $('#par17').text(par[16]);
                 $('#par18').text(par[17]);
         }
+
+
+
+     function calc() {
+            var score1 = $('#score1').val();
+            $('#nett1').text(score1);
+     }
+
+
+
+     $items = $('#numberOfItems').val();
+     $weightitem = $('#weightitem').val();
+
 
         function courseData() {
             var pathArray = window.location.pathname.split('/');
