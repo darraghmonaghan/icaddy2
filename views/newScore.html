@@ -35,7 +35,7 @@
               <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 
                 <ul class="nav navbar-nav navbar-right">
-                  <li><a href="/">My Profile</a></li>
+                  <li><a href="/profile">My Profile</a></li>
                   <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Golfer Options<span class="caret"></span></a>
                     <ul class="dropdown-menu">
@@ -68,9 +68,9 @@
 
                                 <div class='row row-eq-height'>
 
-                                        <div class='col-xs-3 col-md-1'>
+                                        <div class='col-xs-1 col-md-1 col-lg-1'>
 
-                                               <p class='scoreHeader'>Hole</p>
+                                               <p class='scoreHeader'>Hole</p><br>
 
                                                <!-- Hole Number 1 - 18 -->
                                                <p>1</p>
@@ -93,34 +93,93 @@
                                                <p>18</p>
                                         </div>
 
-                                        <div class='col-xs-3 col-md-1'>
+                                        <div class='col-xs-1 col-md-1 col-lg-1'>
 
-                                                <p class='scoreHeader'>Par</p>
+                                                <p class='scoreHeader'>Par</p><br>
 
                                                 <!-- Par for Holes 1 - 18 -->
-                                                <p id='par1'></p>
-                                                <p id='par2'></p>
-                                                <p id='par3'></p>
-                                                <p id='par4'></p>
-                                                <p id='par5'></p>
-                                                <p id='par6'></p>
-                                                <p id='par7'></p>
-                                                <p id='par8'></p>
-                                                <p id='par9'></p>
-                                                <p id='par10'></p>
-                                                <p id='par11'></p>
-                                                <p id='par12'></p>
-                                                <p id='par13'></p>
-                                                <p id='par14'></p>
-                                                <p id='par15'></p>
-                                                <p id='par16'></p>
-                                                <p id='par17'></p>
-                                                <p id='par18'></p>                                                                                                
+
+<!--                                                 <table>
+                                                    <tr>
+                                                        <p id='par1'></p>
+                                                    </tr>
+                                                    <tr>
+                                                        <p id='par2'></p>
+                                                    </tr>
+                                                    <tr>
+                                                        <p id='par3'></p>
+                                                    </tr>
+                                                    <tr>
+                                                        <p id='par4'></p>
+                                                    </tr>
+                                                    <tr>
+                                                        <p id='par5'></p>
+                                                    </tr>
+                                                    <tr>
+                                                        <p id='par6'></p>
+                                                    </tr>                                                                      
+                                                    <tr>
+                                                        <p id='par7'></p>
+                                                    </tr>
+                                                    <tr>
+                                                        <p id='par8'></p>
+                                                    </tr>
+                                                    <tr>
+                                                        <p id='par9'></p>
+                                                    </tr>
+                                                    <tr>
+                                                        <p id='par10'></p>
+                                                    </tr>
+                                                    <tr>
+                                                        <p id='par11'></p>
+                                                    </tr>                                                                      
+                                                    <tr>
+                                                        <p id='par12'></p>
+                                                    </tr>
+                                                    <tr>
+                                                        <p id='par13'></p>
+                                                    </tr>   
+                                                    <tr>
+                                                        <p id='par14'></p>
+                                                    </tr>
+                                                    <tr>
+                                                        <p id='par15'></p>
+                                                    </tr>
+                                                    <tr>
+                                                        <p id='par16'></p>
+                                                    </tr>                                                                      
+                                                    <tr>
+                                                        <p id='par17'></p>
+                                                    </tr>
+                                                    <tr>
+                                                        <p id='par18'></p>
+                                                    </tr>
+                                                </table>   -->                                                                   
+                                      
+                                                        <p id='par1'></p>
+                                                        <p id='par2'></p>                                                        
+                                                        <p id='par3'></p>
+                                                        <p id='par4'></p>
+                                                        <p id='par5'></p>
+                                                        <p id='par6'></p>
+                                                        <p id='par7'></p>
+                                                        <p id='par8'></p>
+                                                        <p id='par9'></p>
+                                                        <p id='par10'></p>
+                                                        <p id='par11'></p>
+                                                        <p id='par12'></p>
+                                                        <p id='par13'></p>
+                                                        <p id='par14'></p>
+                                                        <p id='par15'></p>
+                                                        <p id='par16'></p>
+                                                        <p id='par17'></p>
+                                                        <p id='par18'></p>
+
                                         </div>
 
-                                        <div class='col-xs-3 col-md-2'>
+                                        <div class='col-xs-3 col-md-2 col-lg-2'>
 
-                                               <p class='scoreHeader'>Gross Score</p>
+                                               <p class='scoreHeader'>Gross Score</p><br>
 
                                                 <!-- Score for Holes 1 - 9 -->
                                                 <input type="number" name='score[]' id='score1' class="form-control" placeholder="1st hole" aria-describedby="sizing-addon2" min='1' max='10' required='true' onclick='calc1()'>
@@ -145,11 +204,11 @@
                                         </div>
 
 
-                                        <div class='col-xs-3 col-md-2'>
+                                        <div class='col-xs-3 col-md-2 col-lg-2'>
 
                                                 <!-- Number of Putts Holes 1 - 18 -->
 
-                                                <p class='scoreHeader'>No. of Putts</p>
+                                                <p class='scoreHeader'>No. of Putts</p><br>
 
                                                 <input type="number" name='putts[]' id='putts1' class="form-control" placeholder="1st hole" aria-describedby="sizing-addon2" min='0' max='' required='true'>
                                                 <input type="number" name='putts[]' id='putts2' class="form-control" placeholder="2nd hole" aria-describedby="sizing-addon2" min='0' max='10' required='true'>
@@ -172,9 +231,9 @@
 
                                         </div>
 
-                                        <div class='col-xs-3 col-md-1'>
+                                        <div class='col-xs-3 col-md-2 col-lg-2'>
 
-                                              <p class='scoreHeader'> + / - </p>
+                                              <p class='scoreHeader'> + / - </p><br>
 
                                                 <!-- Nett Score for 1 - 18 -->
 

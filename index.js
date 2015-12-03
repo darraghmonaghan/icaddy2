@@ -99,6 +99,7 @@ app.post(["/sessions", "/login"], function login(req, res) {
 			res.redirect('/login');                // redirect to LOGIN page if authentication fails // 
 		} else {                                
 			req.login(user);
+			console.log('user found & logged in');
 			res.redirect('/profile');
 		}
 	});
@@ -108,7 +109,7 @@ app.post(["/sessions", "/login"], function login(req, res) {
 
 // PROFILE 
 app.get("/profile", function userShow(req, res) {
-	req.currentUser(function(err, user) {
+	req.currentUser(function (err, user) {
 	if (err) {
 		console.log("Error finding current user: " + err);
 	} else {
@@ -119,12 +120,6 @@ app.get("/profile", function userShow(req, res) {
 	});	
 });
 
-// CURRENT USER INFO //
-// app.get('/user.json', function (req,res) {
-// 	req.currentUser(function (err, user) {
-// 		res.send(JSON.stringify(user))
-// 	});
-// });
 
 
 app.get('/user.json', function (req, res) {
@@ -203,6 +198,7 @@ app.post("/:course/newscore", function (req, res) {
 	var score = req.body.score;
 	var putts = req.body.putts;
 	var courseID = req.body.courseID;
+	var nettScore = req.body.nett;
 	var courseName = req.body.courseName;
 	var totalScore = score.reduce(function (a, b) {
 		return parseInt(a) + parseInt(b);
