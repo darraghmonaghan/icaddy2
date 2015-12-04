@@ -208,11 +208,30 @@ app.post("/:course/newscore", function (req, res) {
 	})
 
 
+    // db.User.findOne({ _id: req.session.userId}, function (err, user) {
+    // 		if (err) {
+    // 			console.log('error findng user - Nett Score Tally Update: ' + err);
+    // 		} else {
+				// console.log('user found for nett score tally update');
+				// console.log('Current user par count: ' + user.parCount);
+				// for (count = 0; )     			
+    // 		}
+
+    // });
+
+    
+				// 	var step;
+				// 	for (step = 0; step < 5; step++) {
+				// 	  // Runs 5 times, with values of step 0 through 4.
+				// 	  console.log('Walking east one step');
+				// 	}
+
+
     db.User.findOne({                 // querying DB to find the current user via the Session ID //
                 _id: req.session.userId
-            }, function(err, user) {
+            }, function (err, user) {
 
-			var newScore = new db.Game({date: date, score: score, putts: putts, course_id: courseID, courseName: courseName, totalScore: totalScore, totalPutts: totalPutts});
+			var newScore = new db.Game({date: date, score: score, putts: putts, course_id: courseID, courseName: courseName, totalScore: totalScore, totalPutts: totalPutts, nettScore: nettScore});
 			newScore.save(function (err, game) {
 				if (err) {
 					console.log('error submitting new score to the DB: ' + err);
@@ -220,10 +239,7 @@ app.post("/:course/newscore", function (req, res) {
 					console.log('new score successfully saved to the DB: ' + game);
 				}
 			});
-			//	console.log(seedGame._id);
             user.gamesList.push(newScore._id);		// Push the ID of the game to the User profile //
-            // user.courseList.push(newScore.coursename);
-            //	console.log(user.gamesList);
             user.save(function(err, success) {
                     if (err) {
                         return console.log(err);
@@ -232,6 +248,15 @@ app.post("/:course/newscore", function (req, res) {
                 });
 			res.redirect('/profile');
 	});
+
+
+
+
+
+
+
+
+
 });
 
 

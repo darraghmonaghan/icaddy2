@@ -11,7 +11,14 @@ var userSchema = new Schema ({
 	email: {type: String, required: true},
 	passwordDigest: {type: String, required: true},
 	courseList: [{type: Schema.Types.ObjectId, ref: 'Course'}],
-	gamesList: [{type: Schema.Types.ObjectId, ref: 'Game'}]
+	gamesList: [{type: Schema.Types.ObjectId, ref: 'Game'}],
+  ouchCount: {type: Number, default: 0, required: true},
+  doubleBogeyCount: {type: Number, default: 0, required: true},
+  bogeyCount: {type: Number, default: 0, required: true},
+  parCount: {type: Number, default: 0, required: true},
+  birdieCount: {type: Number, default: 0, required: true},
+  eagleCount: {type: Number, default: 0, required: true},
+  albatrosCount: {type: Number, default: 0, required: true},
 });
 
 
