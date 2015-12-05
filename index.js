@@ -207,25 +207,33 @@ app.post("/:course/newscore", function (req, res) {
 		return parseInt(a) + parseInt(b);
 	})
 
+	// console.log('The datatype of nettScore is: ' + typeof(nettScore[4]));
 
+
+
+	// ATTEMPT AT COLLATING NETT SCORE
     // db.User.findOne({ _id: req.session.userId}, function (err, user) {
     // 		if (err) {
     // 			console.log('error findng user - Nett Score Tally Update: ' + err);
     // 		} else {
-				// console.log('user found for nett score tally update');
+				// // console.log('user found for nett score tally update');
 				// console.log('Current user par count: ' + user.parCount);
-				// for (count = 0; )     			
-    // 		}
 
+				// for (var i = 0; i < 18; i++) {
+				// 	var test = 0;
+				// 	if ((parseInt(nettScore[i])) === 0) {
+				// 		// console.log(typeof(parseInt(nettScore[i])));
+				// 		test+=1;
+				// 	} else {
+				// 		// console.log('not a par');
+				// 	}
+				// 	console.log('Par Count After - inside loop: ' + test);  
+				// };  
+				// 	console.log('Par Count After - outside loop: ' + test);  
+    // 		};
     // });
 
     
-				// 	var step;
-				// 	for (step = 0; step < 5; step++) {
-				// 	  // Runs 5 times, with values of step 0 through 4.
-				// 	  console.log('Walking east one step');
-				// 	}
-
 
     db.User.findOne({                 // querying DB to find the current user via the Session ID //
                 _id: req.session.userId
@@ -234,9 +242,9 @@ app.post("/:course/newscore", function (req, res) {
 			var newScore = new db.Game({date: date, score: score, putts: putts, course_id: courseID, courseName: courseName, totalScore: totalScore, totalPutts: totalPutts, nettScore: nettScore});
 			newScore.save(function (err, game) {
 				if (err) {
-					console.log('error submitting new score to the DB: ' + err);
+					// console.log('error submitting new score to the DB: ' + err);
 				} else {
-					console.log('new score successfully saved to the DB: ' + game);
+					// console.log('new score successfully saved to the DB: ' + game);
 				}
 			});
             user.gamesList.push(newScore._id);		// Push the ID of the game to the User profile //
@@ -311,15 +319,15 @@ app.get("/scorelist", function (req, res) {
 
 // INDIVIDUAL SCORE DETAILS 
 app.get("/:round", function (req, res) {
-	// res.send('hello test 1')
+	//res.send('Round Details Here');
 	var roundInfoPath = path.join(views, 'scorePage.html');
 	res.sendFile(roundInfoPath);
 });
 
 
 // SPECIFIC COURSE PERFORMANCE
-app.get("/:course", function (req, res) {
-	// res.send('hello test 1')
+app.get("/performance/:course", function (req, res) {
+	// res.send('Course Info Here');
 	var courseInfoPath = path.join(views, 'course.html');
 	res.sendFile(courseInfoPath);
 });
