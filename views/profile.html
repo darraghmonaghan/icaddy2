@@ -73,6 +73,57 @@
 
 
 
+                <!-- PAR / BIRDIDE / BOGEY COUNT -->
+                <div class="panel panel-default">
+                    <div class="panel-heading">Score Breakdown:</div>
+                        <table class="table" >
+                            <thead>
+                                <tr>
+                                    <td></td>
+                                    <td>Ouch...</td>
+                                    <td>Double Bogey's</td>
+                                    <td>Bogey's</td>
+                                    <td>Par's</td>
+                                    <td>Birdie's</td>
+                                    <td>Eagle's</td>
+                                    <td>Albatros's</td> 
+                                    <td>Aces / Hole In One</td>               
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>No.</td>
+                                    <td id='ouchCount'></td>
+                                    <td id='doubleBogeyCount'></td>
+                                    <td id='bogeyCount'></td>
+                                    <td id='parCount'></td>
+                                    <td id='birdieCount'></td>
+                                    <td id='eagleCount'></td>
+                                    <td id='albatrosCount'></td> 
+                                    <td id='aceCount'></td>
+                                </tr>
+                                <tr>    
+                                    <td>%</td>
+                                    <td id='ouchCount%'></td>
+                                    <td id='doubleBogeyCount%'></td>
+                                    <td id='bogeyCount%'></td>
+                                    <td id='parCount%'></td>
+                                    <td id='birdieCount%'></td>
+                                    <td id='eagleCount%'></td>
+                                    <td id='albatrosCount%'></td> 
+                                    <td id='aceCount%'></td>
+                                </tr>  
+                            </tbody>
+                        </table>
+                </div>
+
+
+
+
+
+
+
+
 
     </div> <!-- For the container -->
     </body>
@@ -84,10 +135,37 @@
                 <tr>
 
                     <td> <%= date %> </td>
-                    <td> <a href="/<%= course_id %><%= courseName %>"><%= courseName %> </td>
-                    <td> <a href="/<%= _id %><%= courseName %>"><%= totalScore %> </td>
+                    <td> <a href="performance/<%= course_id %>"><%= courseName %> </td>
+                    <td> <a href="/<%= _id %>"><%= totalScore %> </td>
                     <td> <%= totalPutts %> </td>
                     <td> <div class="btn-group btn-group-xs close" role="group" aria-label="..." onclick='deleteScore(this)' data-id=<%= _id %> >X</div> </td>
 
                 </tr>
+
+
+
+            // AJAX request to get course data - name, par etc. //
+            function courseData() {
+                var pathArray = window.location.pathname.split('/');
+                var courseID = pathArray[2]; 
+                var customURL = "/" + courseID + '.json'           
+                // REGEX to extract the course ID
+                $('#courseID').val(courseID);
+
+                // 1. AJAX request to get course info, querying DB using courseID
+                $.ajax({
+                        url: customURL,
+                        type: 'GET',
+                        datatype: 'json',
+                        success: displayAll
+                });
+            };
+
+            $(function() {
+
+                courseData();
+
+            });
+
+
       </script>
