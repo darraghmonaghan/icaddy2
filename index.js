@@ -171,6 +171,7 @@ app.post('/scorecard', function (req, res) {
 });
 
 
+// GETS COURSE INFORMATION - PAR, YARDAGE, NAME etc. //
 app.get('/:course.json', function (req, res) {
 	var courseID = req.params.course;
 	var course = db.Course.find({_id: courseID}, function (err, course) {
@@ -186,7 +187,7 @@ app.get('/:course.json', function (req, res) {
 
 
 
-// NEW SCORE 
+// NEW SCORE //
 app.get("/:course/newscore", function (req, res) {
 	var newScorePath = path.join(views, 'newScore.html');
 	res.sendFile(newScorePath);
@@ -317,28 +318,30 @@ app.get("/scorelist", function (req, res) {
 });
 
 
-// INDIVIDUAL SCORE DETAILS 
-app.get("/:round", function (req, res) {
+// SPECIFIC ROUND / GAME // 
+app.get("/performance/:round", function (req, res) {
 	var roundInfoPath = path.join(views, 'scorePage.html');
 	res.sendFile(roundInfoPath);
 });
 
-// app.get('/:round.json', function (req, res) {
-// 	var roundID = req.params.round;
-// 	var round = db.Game.find({_id: roundID}, function (err, round) {
-// 			if (err) {
-// 				console.log('Couldnt find round: ' + err);
-// 			} else {
-// 				console.log('Round found: ' + round);
-// 				res.send(round);
-// 			}
-// 	});	
-// });
+// AJAX request to retrieve data //
+app.get('/round/:round.json', function (req, res) {
+	var roundID = req.params.round;
+	console.log(roundID);
+	var round = db.Game.find({_id: roundID}, function (err, round) {
+			if (err) {
+				console.log('Couldnt find round: ' + err);
+			} else {
+				console.log('Round found: ' + round);
+				res.send(round);
+			}
+	});	
+});
 
 
 
 // SPECIFIC COURSE PERFORMANCE
-app.get("/performance/:course", function (req, res) {
+app.get("/performances/:course", function (req, res) {
 	// res.send('Course Info Here');
 	var coursePerformancePath = path.join(views, 'course.html');
 	res.sendFile(coursePerformancePath);
