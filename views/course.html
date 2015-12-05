@@ -56,6 +56,45 @@
 
         <h1>Specific Course Performance</h1>
 
+        <h3 id='courseName'>Course Name: </h3>
+
+        <h5>Can query the Game DB, using the current users info, for all instances with the game_id - 1) Current User, 2) Game DB using header, 3) Extract all instances</h5>
+
     </div>
     </body>
 </html>
+
+
+
+
+
+
+      <script>
+
+            // AJAX request to get course data - name, par etc. //
+            function courseData() {
+                var pathArray = window.location.pathname.split('/');
+                var coursePerformance = pathArray[2];
+                console.log(coursePerformance); 
+                var customURL = "/" + coursePerformance + '.json'           
+                // REGEX to extract the course ID
+
+
+                // 1. AJAX request to get course info, querying DB using courseID
+                $.ajax({
+                        url: customURL,
+                        type: 'GET',
+                        datatype: 'json',
+                        success: displayAll
+                });
+            };
+
+
+            $(function() {
+
+                courseData();
+
+            });
+
+
+      </script>

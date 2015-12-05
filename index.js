@@ -319,18 +319,32 @@ app.get("/scorelist", function (req, res) {
 
 // INDIVIDUAL SCORE DETAILS 
 app.get("/:round", function (req, res) {
-	//res.send('Round Details Here');
 	var roundInfoPath = path.join(views, 'scorePage.html');
 	res.sendFile(roundInfoPath);
 });
+
+// app.get('/:round.json', function (req, res) {
+// 	var roundID = req.params.round;
+// 	var round = db.Game.find({_id: roundID}, function (err, round) {
+// 			if (err) {
+// 				console.log('Couldnt find round: ' + err);
+// 			} else {
+// 				console.log('Round found: ' + round);
+// 				res.send(round);
+// 			}
+// 	});	
+// });
+
 
 
 // SPECIFIC COURSE PERFORMANCE
 app.get("/performance/:course", function (req, res) {
 	// res.send('Course Info Here');
-	var courseInfoPath = path.join(views, 'course.html');
-	res.sendFile(courseInfoPath);
+	var coursePerformancePath = path.join(views, 'course.html');
+	res.sendFile(coursePerformancePath);
 });
+
+
 
 
 

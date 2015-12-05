@@ -4,7 +4,8 @@ var Schema = mongoose.Schema;
 
 var courseSchema = new Schema ({
   coursename: String,
-  par: [Number]
+  par: [Number],
+  yardage: [Number]
 });
 
 

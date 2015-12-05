@@ -55,6 +55,36 @@
         <h1>Individual Score Page</h1><br>
         <h1>Course Name: </h1>
 
+        <h5>1. extract ID from Params, 2. Query game DB using step 1</h5>
+
     </div>
     </body>
 </html>
+
+
+<script>
+
+              // AJAX request to get course data - name, par etc. //
+            function roundData() {
+                var pathArray = window.location.pathname.split('/');
+                var roundID = pathArray[1]; 
+                var customURL = "/" + roundID + '.json';
+                console.log(roundID);           
+                // REGEX to extract the course ID
+
+                // 1. AJAX request to get course info, querying DB using courseID
+                $.ajax({
+                        url: customURL,
+                        type: 'GET',
+                        datatype: 'json',
+                        success: displayAll
+                });
+            };
+
+            $(function() {
+
+                roundData();
+
+            });
+
+</script>

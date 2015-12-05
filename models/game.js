@@ -8,7 +8,7 @@ var gamesSchema = new Schema ({
   course_id: String, 
   score: [Number],
   putts: [Number],
-  nettScore: [Number],	// Need to consider how this will be calculated, Needs to be put into an input form? //
+  nettScore: [Number],
   courseName: String,
   totalScore: Number,
   totalPutts: Number
