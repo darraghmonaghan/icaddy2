@@ -52,9 +52,6 @@
           </nav>
             
 
-        <h1>Individual Score Page</h1><br>
-<!--         <h3>Course Name: </h3> -->
-
                 <div class="panel panel-default">
                     <div id='courseName' class="panel-heading">Course Name:   </div>
                         <table class="table" >
@@ -66,7 +63,6 @@
                                     <td>Score</td>
                                     <td>Putts</td>
                                     <td>Nett Score</td>
-               
                                 </tr>
                             </thead>
                             <tbody>
@@ -213,7 +209,16 @@
                                     <td id='score18'></td>          
                                     <td id='putts18'></td>
                                     <td id='nett18'></td>
-                                </tr>                            
+                                </tr>
+                                <tr>
+                                    <td>Total</td>
+                                    <td id='parTotal'></td>
+                                    <td id='yardageTotal'></td>
+                                    <td id='scoreTotal'></td>          
+                                    <td id='puttsTotal'></td>
+                                    <td id='nettTotal'></td>
+                                </tr>    
+
                             </tbody>
                         </table>
                 </div>
@@ -264,6 +269,11 @@
                               $('#nett16').text(nett[15]);
                               $('#nett17').text(nett[16]);
                               $('#nett18').text(nett[17]);
+                              var nettTotal = nett.reduce(function (previousValue, currentValue, currentIndex, array) {
+                                            return previousValue + currentValue;
+                                          });
+                                          $('#nettTotal').text(nettTotal);
+
 
                               var putts = info.putts;
                               $('#putts1').text(putts[0]);
@@ -285,6 +295,9 @@
                               $('#putts17').text(putts[16]);
                               $('#putts18').text(putts[17]); 
 
+                              var totalPutts = info.totalPutts;
+                              $('#puttsTotal').text(totalPutts); 
+
                               var score = info.score;
                               $('#score1').text(score[0]);
                               $('#score2').text(score[1]);
@@ -304,6 +317,9 @@
                               $('#score16').text(score[15]);
                               $('#score17').text(score[16]);
                               $('#score18').text(score[17]);
+
+                              var totalScore = info.totalScore;
+                              $('#scoreTotal').text(totalScore);
 
                               var courseIdURL = "/" + info.course_id + '.json';
 
@@ -334,6 +350,12 @@
                                           $('#par17').text(par[16]);
                                           $('#par18').text(par[17]);
 
+                                          var coursePar = par.reduce(function (previousValue, currentValue, currentIndex, array) {
+                                            return previousValue + currentValue;
+                                          });
+                                          $('#parTotal').text(coursePar);
+
+
                                       var yardage = info2.yardage;
                                           $('#yardage1').text(yardage[0]);
                                           $('#yardage2').text(yardage[1]);
@@ -353,6 +375,11 @@
                                           $('#yardage16').text(yardage[15]);
                                           $('#yardage17').text(yardage[16]);
                                           $('#yardage18').text(yardage[17]);
+
+                                          var courseYardage = yardage.reduce(function (previousValue, currentValue, currentIndex, array) {
+                                            return previousValue + currentValue;
+                                          });
+                                          $('#yardageTotal').text(courseYardage);
                                   }
                               })
 
