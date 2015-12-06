@@ -53,12 +53,28 @@
           </nav>
             
 
+        <h3 id='courseName'>Course Name: </h3><br>
 
-        <h1>Specific Course Performance</h1>
 
-        <h3 id='courseName'>Course Name: </h3>
+                <!-- RECENT SCORES TABLE -->
+                <div class="panel panel-default">
+                    <div class="panel-heading">Rounds Played:</div>
+                        <table class="table" >
+                            <thead>
+                                <tr>
+                                    <td>Date</td>
+                                    <td>Gross Score</td>
+                                    <td>No. of Putts</td>
+                                    <td>Delete</td>
+                                </tr>
+                            </thead>
+                            <tbody id='rounds-placeholder'></tbody>
+                        </table>
+                    <div class="panel-footer"><a href="/scorelist">View All Your Scores</a></div>
+                </div>
 
-        <h5>Can query the Game DB, using the current users info, for all instances with the game_id - 1) Current User, 2) Game DB using header, 3) Extract all instances</h5>
+
+
 
     </div>
     </body>
@@ -68,32 +84,67 @@
 
 
 
+      <script type="text/template" id="rounds-template">
+                <tr>
+                    <td> <%= date %> </td>
+                    <td> <%= totalScore %> </td>
+                    <td> <%= totalPutts %> </td>
+                    <td> <div class="btn-group btn-group-xs close" role="group" aria-label="..." onclick='deleteScore(this)' data-id=<%= _id %> >X</div> </td>
+                </tr>
+      </script>
 
       <script>
 
             // AJAX request to get course data - name, par etc. //
+            function currentUserData() {
+                var pathArray = window.location.pathname.split('/');
+                var courseID = pathArray[2];
+                var requiredGames = [];    
+
+                $.ajax({
+                        url: "/user.json",
+                        type: 'GET',
+                        datatype: 'json',
+                        success: function(data) {
+                        
+                              var parsed = JSON.parse(data);
+                              parsed.gamesList.forEach(function (game) {
+                                    if (game.course_id === courseID) {
+                                        requiredGames.push(game);
+                                              console.log('game pushed to requiredGames[]');
+                                              var roundsTemplate = _.template($('#rounds-template').html());
+                                              var roundsHtml = roundsTemplate(game);
+                                              $("#rounds-placeholder").append(roundsHtml);
+                                    } else {
+                                        console.log('wrong courseID, game not pushed');
+                                    }
+                              });
+                        }
+                });
+                console.log(requiredGames);
+            };
+
+
             function courseData() {
                 var pathArray = window.location.pathname.split('/');
-                var coursePerformance = pathArray[2];
-                console.log(coursePerformance); 
-                var customURL = "/" + coursePerformance + '.json'           
-                // REGEX to extract the course ID
+                var courseID = pathArray[2];
+                var customURL = '/' + courseID + '.json';
 
-
-                // 1. AJAX request to get course info, querying DB using courseID
                 $.ajax({
                         url: customURL,
                         type: 'GET',
                         datatype: 'json',
-                        success: displayAll
+                        success: function(data) {
+                              var name = data[0].coursename;
+                              $('#courseName').append(name);
+                        }
                 });
-            };
+            }
 
 
             $(function() {
-
+                currentUserData();
                 courseData();
-
             });
 
 

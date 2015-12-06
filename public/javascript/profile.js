@@ -48,7 +48,7 @@ function getData() {
     var games = user.gamesList;
 	  var scoresTemplate = _.template($('#scores-template').html());
 		
-		games.forEach(function(game){
+		games.forEach(function (game){
       console.log(game);
 			var scoreHtml = scoresTemplate(game);
 			$("#scores-placeholder").append(scoreHtml);

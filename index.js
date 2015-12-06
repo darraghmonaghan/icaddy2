@@ -123,7 +123,6 @@ app.get("/profile", function userShow(req, res) {
 
 
 app.get('/user.json', function (req, res) {
-
 	db.User.findOne({_id: req.session.userId })        // Find current user through querying DB using SessionID //
     .populate('gamesList')
     .populate('courseList')                           // Populate() converts the gameID's stored in the gamesList array into an array of game OBJECTS, with all relevant game data stored within each game object //
@@ -208,34 +207,6 @@ app.post("/:course/newscore", function (req, res) {
 		return parseInt(a) + parseInt(b);
 	})
 
-	// console.log('The datatype of nettScore is: ' + typeof(nettScore[4]));
-
-
-
-	// ATTEMPT AT COLLATING NETT SCORE
-    // db.User.findOne({ _id: req.session.userId}, function (err, user) {
-    // 		if (err) {
-    // 			console.log('error findng user - Nett Score Tally Update: ' + err);
-    // 		} else {
-				// // console.log('user found for nett score tally update');
-				// console.log('Current user par count: ' + user.parCount);
-
-				// for (var i = 0; i < 18; i++) {
-				// 	var test = 0;
-				// 	if ((parseInt(nettScore[i])) === 0) {
-				// 		// console.log(typeof(parseInt(nettScore[i])));
-				// 		test+=1;
-				// 	} else {
-				// 		// console.log('not a par');
-				// 	}
-				// 	console.log('Par Count After - inside loop: ' + test);  
-				// };  
-				// 	console.log('Par Count After - outside loop: ' + test);  
-    // 		};
-    // });
-
-    
-
     db.User.findOne({                 // querying DB to find the current user via the Session ID //
                 _id: req.session.userId
             }, function (err, user) {
@@ -257,15 +228,6 @@ app.post("/:course/newscore", function (req, res) {
                 });
 			res.redirect('/profile');
 	});
-
-
-
-
-
-
-
-
-
 });
 
 
@@ -291,7 +253,6 @@ app.get('/mycourses', function (req, res) {
 
 
 app.get('/listOfCourses', function (req, res) {
-
 	var courseList = db.Course.find({}, function(err, courses) {
 		if (err) {
 			// console.log('error in finding course list: ' + err);
@@ -327,7 +288,6 @@ app.get("/performance/:round", function (req, res) {
 // AJAX request to retrieve data //
 app.get('/round/:round.json', function (req, res) {
 	var roundID = req.params.round;
-	console.log(roundID);
 	var round = db.Game.find({_id: roundID}, function (err, round) {
 			if (err) {
 				console.log('Couldnt find round: ' + err);
@@ -346,6 +306,38 @@ app.get("/performances/:course", function (req, res) {
 	var coursePerformancePath = path.join(views, 'course.html');
 	res.sendFile(coursePerformancePath);
 });
+
+// AJAX request to retrieve data //
+// app.get('/course/:course', function (req, res) {
+// 	var courseID = req.params.course;
+//     var User = db.User.findOne({_id: req.session.userId}, function (err, user) {
+//     	if (err) {
+//     		console.log("user not found: " + err);
+//     	} else {
+//     		console.log(User);    		
+//     	}
+//    	});
+
+
+
+	// console.log(roundID);
+	// var round = db.Game.find({_id: roundID}, function (err, round) {
+	// 		if (err) {
+	// 			console.log('Couldnt find round: ' + err);
+	// 		} else {
+	// 			console.log('Round found: ' + round);
+	// 			res.send(round);
+	// 		}
+	// });	
+// });
+
+// Find current user   DONE
+// Extract Course ID   DONE
+// Populate GamesList array for User
+// Cycle through and check each games course_id against course_id extracted
+// Push all mathing ones to new array and render / send
+
+
 
 
 
