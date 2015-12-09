@@ -79,10 +79,24 @@
 
 
                 // Calculating MEAN score //
+                var Rounds = requiredGames.length;
+                var totalGross = 0;
+                var totalPutts = 0;
+                var totalNett = 0;
 
-
-
-
+                for (i = 0; i < requiredGames.length; i++) {
+                    totalGross += requiredGames[i].totalScore;
+                    totalPutts += requiredGames[i].totalPutts;
+                    totalNett += requiredGames[i].nettScore.reduce(function (previousValue, currentValue, currentIndex, array) {
+                              return previousValue + currentValue;
+                        });
+                }
+                var meanGross = (totalGross / Rounds);
+                var meanPutts = (totalPutts / Rounds);
+                var meanNett = (totalNett / Rounds);
+                $('#meanGross').text(Math.round(meanGross));
+                $('#meanPutts').text(Math.round(meanPutts));
+                $('#meanNett').text(Math.round(meanNett));  
             }
 
 
