@@ -25,8 +25,8 @@
                                     // console.log('Step 1 Here: '); // This part actually shows the full requiredGames Array;
                                     // console.log(requiredGames);
                               });
-                              console.log('Step 2 Here: ');
                               summaryData(); // summarizing the shortlisted data for the specific golf course
+                              avgPerHole(); // function 
                         }
                 });
             };
@@ -109,6 +109,283 @@
                 $('#meanNett').text(Math.round(meanNett));  
             }
 
+
+
+
+
+            function avgPerHole() {
+                avgPerHole1();
+                avgPerHole2();
+                avgPerHole3();
+                avgPerHole4();
+                avgPerHole5();
+                avgPerHole6();
+                avgPerHole7();
+                avgPerHole8();                
+                avgPerHole9();
+                avgPerHole10();
+                avgPerHole11();
+                avgPerHole12();
+                avgPerHole13();
+                avgPerHole14();
+                avgPerHole15();
+                avgPerHole16();
+                avgPerHole17();
+                avgPerHole18();
+            }
+
+
+            function avgPerHole1() {
+                var scores = [];
+                var rounds = requiredGames.length;
+
+                for (i = 0; i < rounds; i++) {
+                    scores.push(requiredGames[i].score[0]);
+                }
+                var scoresSum = scores.reduce(function (previousValue, currentValue, currentIndex, array) {
+                    return previousValue + currentValue;
+                });
+                var avg = Math.round((scoresSum / rounds));
+                $('#avgGross1').text(avg);              
+            }
+
+            function avgPerHole2() {
+                var scores = [];
+                var rounds = requiredGames.length;
+
+                for (i = 0; i < rounds; i++) {
+                    scores.push(requiredGames[i].score[1]);
+                }
+                var scoresSum = scores.reduce(function (previousValue, currentValue, currentIndex, array) {
+                    return previousValue + currentValue;
+                });
+                var avg = Math.round((scoresSum / rounds));
+                $('#avgGross2').text(avg);              
+            }
+
+            function avgPerHole3() {
+                var scores = [];
+                var rounds = requiredGames.length;
+
+                for (i = 0; i < rounds; i++) {
+                    scores.push(requiredGames[i].score[2]);
+                }
+                var scoresSum = scores.reduce(function (previousValue, currentValue, currentIndex, array) {
+                    return previousValue + currentValue;
+                });
+                var avg = Math.round((scoresSum / rounds));
+                $('#avgGross3').text(avg);              
+            }
+
+            function avgPerHole4() {
+                var scores = [];
+                var rounds = requiredGames.length;
+
+                for (i = 0; i < rounds; i++) {
+                    scores.push(requiredGames[i].score[3]);
+                }
+                var scoresSum = scores.reduce(function (previousValue, currentValue, currentIndex, array) {
+                    return previousValue + currentValue;
+                });
+                var avg = Math.round((scoresSum / rounds));
+                $('#avgGross4').text(avg);              
+            }
+
+            function avgPerHole5() {
+                var scores = [];
+                var rounds = requiredGames.length;
+
+                for (i = 0; i < rounds; i++) {
+                    scores.push(requiredGames[i].score[4]);
+                }
+                var scoresSum = scores.reduce(function (previousValue, currentValue, currentIndex, array) {
+                    return previousValue + currentValue;
+                });
+                var avg = Math.round((scoresSum / rounds));
+                $('#avgGross5').text(avg);              
+            }
+
+            function avgPerHole6() {
+                var scores = [];
+                var rounds = requiredGames.length;
+
+                for (i = 0; i < rounds; i++) {
+                    scores.push(requiredGames[i].score[5]);
+                }
+                var scoresSum = scores.reduce(function (previousValue, currentValue, currentIndex, array) {
+                    return previousValue + currentValue;
+                });
+                var avg = Math.round((scoresSum / rounds));
+                $('#avgGross6').text(avg);              
+            }
+
+            function avgPerHole7() {
+                var scores = [];
+                var rounds = requiredGames.length;
+
+                for (i = 0; i < rounds; i++) {
+                    scores.push(requiredGames[i].score[6]);
+                }
+                var scoresSum = scores.reduce(function (previousValue, currentValue, currentIndex, array) {
+                    return previousValue + currentValue;
+                });
+                var avg = Math.round((scoresSum / rounds));
+                $('#avgGross7').text(avg);              
+            }
+
+            function avgPerHole8() {
+                var scores = [];
+                var rounds = requiredGames.length;
+
+                for (i = 0; i < rounds; i++) {
+                    scores.push(requiredGames[i].score[7]);
+                }
+                var scoresSum = scores.reduce(function (previousValue, currentValue, currentIndex, array) {
+                    return previousValue + currentValue;
+                });
+                var avg = Math.round((scoresSum / rounds));
+                $('#avgGross8').text(avg);              
+            }
+
+            function avgPerHole9() {
+                var scores = [];
+                var rounds = requiredGames.length;
+
+                for (i = 0; i < rounds; i++) {
+                    scores.push(requiredGames[i].score[8]);
+                }
+                var scoresSum = scores.reduce(function (previousValue, currentValue, currentIndex, array) {
+                    return previousValue + currentValue;
+                });
+                var avg = Math.round((scoresSum / rounds));
+                $('#avgGross9').text(avg);              
+            }
+
+            function avgPerHole10() {
+                var scores = [];
+                var rounds = requiredGames.length;
+
+                for (i = 0; i < rounds; i++) {
+                    scores.push(requiredGames[i].score[9]);
+                }
+                var scoresSum = scores.reduce(function (previousValue, currentValue, currentIndex, array) {
+                    return previousValue + currentValue;
+                });
+                var avg = Math.round((scoresSum / rounds));
+                $('#avgGross10').text(avg);              
+            }
+
+            function avgPerHole11() {
+                var scores = [];
+                var rounds = requiredGames.length;
+
+                for (i = 0; i < rounds; i++) {
+                    scores.push(requiredGames[i].score[10]);
+                }
+                var scoresSum = scores.reduce(function (previousValue, currentValue, currentIndex, array) {
+                    return previousValue + currentValue;
+                });
+                var avg = Math.round((scoresSum / rounds));
+                $('#avgGross11').text(avg);              
+            }
+
+            function avgPerHole12() {
+                var scores = [];
+                var rounds = requiredGames.length;
+
+                for (i = 0; i < rounds; i++) {
+                    scores.push(requiredGames[i].score[11]);
+                }
+                var scoresSum = scores.reduce(function (previousValue, currentValue, currentIndex, array) {
+                    return previousValue + currentValue;
+                });
+                var avg = Math.round((scoresSum / rounds));
+                $('#avgGross12').text(avg);              
+            }
+
+            function avgPerHole13() {
+                var scores = [];
+                var rounds = requiredGames.length;
+
+                for (i = 0; i < rounds; i++) {
+                    scores.push(requiredGames[i].score[12]);
+                }
+                var scoresSum = scores.reduce(function (previousValue, currentValue, currentIndex, array) {
+                    return previousValue + currentValue;
+                });
+                var avg = Math.round((scoresSum / rounds));
+                $('#avgGross13').text(avg);              
+            }
+
+            function avgPerHole14() {
+                var scores = [];
+                var rounds = requiredGames.length;
+
+                for (i = 0; i < rounds; i++) {
+                    scores.push(requiredGames[i].score[13]);
+                }
+                var scoresSum = scores.reduce(function (previousValue, currentValue, currentIndex, array) {
+                    return previousValue + currentValue;
+                });
+                var avg = Math.round((scoresSum / rounds));
+                $('#avgGross14').text(avg);              
+            }
+
+            function avgPerHole15() {
+                var scores = [];
+                var rounds = requiredGames.length;
+
+                for (i = 0; i < rounds; i++) {
+                    scores.push(requiredGames[i].score[14]);
+                }
+                var scoresSum = scores.reduce(function (previousValue, currentValue, currentIndex, array) {
+                    return previousValue + currentValue;
+                });
+                var avg = Math.round((scoresSum / rounds));
+                $('#avgGross15').text(avg);              
+            }
+
+            function avgPerHole16() {
+                var scores = [];
+                var rounds = requiredGames.length;
+
+                for (i = 0; i < rounds; i++) {
+                    scores.push(requiredGames[i].score[15]);
+                }
+                var scoresSum = scores.reduce(function (previousValue, currentValue, currentIndex, array) {
+                    return previousValue + currentValue;
+                });
+                var avg = Math.round((scoresSum / rounds));
+                $('#avgGross16').text(avg);              
+            }
+
+            function avgPerHole17() {
+                var scores = [];
+                var rounds = requiredGames.length;
+
+                for (i = 0; i < rounds; i++) {
+                    scores.push(requiredGames[i].score[16]);
+                }
+                var scoresSum = scores.reduce(function (previousValue, currentValue, currentIndex, array) {
+                    return previousValue + currentValue;
+                });
+                var avg = Math.round((scoresSum / rounds));
+                $('#avgGross17').text(avg);              
+            }
+
+            function avgPerHole18() {
+                var scores = [];
+                var rounds = requiredGames.length;
+
+                for (i = 0; i < rounds; i++) {
+                    scores.push(requiredGames[i].score[17]);
+                }
+                var scoresSum = scores.reduce(function (previousValue, currentValue, currentIndex, array) {
+                    return previousValue + currentValue;
+                });
+                var avg = Math.round((scoresSum / rounds));
+                $('#avgGross18').text(avg);              
+            }
 
             function courseData() {
                 var pathArray = window.location.pathname.split('/');
