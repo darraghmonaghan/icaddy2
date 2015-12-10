@@ -1,6 +1,6 @@
 
 $(function(){
 
-    $(".player").YTPlayer();
+    // $(".player").YTPlayer();
     
 });
