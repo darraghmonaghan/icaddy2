@@ -85,10 +85,11 @@
                 var mostRecentGame = requiredGames[0].date;
                 for (i = 0; i < requiredGames.length; i++) {
                     if (requiredGames[i].date > mostRecentGame) {
-                        mostRecentGame = requiredGames[i].date;
+                        var mostRecentGame = requiredGames[i].date; // originally an empty date, then checking to see if [i] is more recent - ORIGINAL DATE NEEDED
+                        var slicedDate = mostRecentGame.slice(0, 9); // removing useable part of date string
                     }
                 }
-                $('#lastGameDate').append(mostRecentGame);
+                $('#lastGameDate').append(slicedDate);
 
 
                 for (i = 0; i < requiredGames.length; i++) {
@@ -743,7 +744,7 @@
 
 
 
-            var myLineChart = new Chart(ctx).Line(data, options);
+            // var myLineChart = new Chart(ctx).Line(data, options);
 
             var data = {
                 labels: ["January", "February", "March", "April", "May", "June", "July"],

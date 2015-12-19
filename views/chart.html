@@ -1,0 +1,45 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Course Performance</title>
+        <script src="/vendor/jquery/dist/jquery.min.js"></script>
+        <script src="/vendor/underscore/underscore-min.js"></script>
+        <script src="/vendor/bootstrap/dist/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="/vendor/bootstrap/dist/css/bootstrap.min.css">
+        <script src='Chart.min.js'></script>
+        <script src="Chart.js"></script>
+<!--         <link rel="stylesheet" type="text/css" href="/static/css/newscore.css"> -->
+
+        <script type="text/javascript" src="http://code.jquery.com/jquery-2.1.3.min.js"></script>
+    </head>
+
+
+    <body>
+    		<h1>Test Chart Show</h1>
+
+            <canvas id="buyers" width="600" height="400"></canvas>
+
+    </body>
+</html>
+
+
+<script>
+    var buyers = document.getElementById('buyers').getContext('2d');
+    new Chart(buyers).Line(buyerData);
+
+    var buyerData = {
+        labels : ["January","February","March","April","May","June"],
+        datasets : [
+            {
+                fillColor : "rgba(172,194,132,0.4)",
+                strokeColor : "#ACC26D",
+                pointColor : "#fff",
+                pointStrokeColor : "#9DB86D",
+                data : [203,156,99,251,305,247]
+            }
+        ]
+    }
+    
+</script>

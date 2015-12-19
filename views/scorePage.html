@@ -50,13 +50,17 @@
               </div><!-- /.navbar-collapse -->
             </div><!-- /.container-fluid -->
           </nav>
-            
+          
+        <h3 id='courseName'>Course Name: </h3>
+        <h5 id='gameDate'>Date of Round: </h5><br>    
+
+
 
                 <div class="panel panel-default">
-                    <div id='courseName' class="panel-heading">Course Name:   </div>
+                    <!-- <div id='courseName' class="panel-heading">Course Name:   </div> -->
                         <table class="table" >
                             <thead>
-                                <tr>
+                                <tr class="panel-heading">
                                     <td>Hole</td>
                                     <td>Par</td>
                                     <td>Yardage</td>
@@ -249,6 +253,18 @@
 
                               var courseName = info.courseName;
                               $('#courseName').append(courseName);
+
+                              var monthNames = [
+                                "January", "February", "March",
+                                "April", "May", "June", "July",
+                                "August", "September", "October",
+                                "November", "December"
+                              ];
+
+                              var gameDate = info.date;
+                              var slicedDate = gameDate.slice(0, 9);
+                              $('#gameDate').append(slicedDate);
+
 
                               var nett = info.nettScore;
                               $('#nett1').text(nett[0]);

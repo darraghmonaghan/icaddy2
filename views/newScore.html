@@ -58,8 +58,14 @@
 
             <div class="input-group input-group">
                 <span class="input-group-addon" id="sizing-addon1">Date of Game:</span>
-                <input placeholder="Date of Round" class="form-control" type="" onfocus="(this.type='date')" onblur="(this.type='text')" id="date" name='date' required='true'>
+                <input placeholder="Please Select" class="form-control" type="date" onfocus="(this.type='date')" onblur="(this.type='text')" id="date" name='date' required='true'>             
             </div><br>
+
+            <div class="input-group input-group">
+                <span class="input-group-addon" id="sizing-addon1">Playing Partners:</span>
+                <input placeholder="Please enter names (optional)" class="form-control" type="text" name='playingPartners' required='false'>                
+            </div><br>
+
 
                 <input type="hidden" id="courseID" name='courseID' value=''>
                 <input type="hidden" id="courseNameVal" name='courseName' value=''><br>
@@ -97,7 +103,8 @@
 
                                                 <p class='scoreHeader'>Par</p><br>
 
-                                                <!-- Par for Holes 1 - 18 -->                                                                                       <div id='par1' class='form-control'></div>
+                                                <!-- Par for Holes 1 - 18 -->                                                                                        
+                                                        <div id='par1' class='form-control'></div>
                                                         <div id='par2' class='form-control'></div>                                              
                                                         <div id='par3' class='form-control'></div>
                                                         <div id='par4' class='form-control'></div>
@@ -201,8 +208,8 @@
                                 </div>
 
                         </table><br>
-                        <button class="btn btn-default">Submit Scorecard Template</button>
-                    </form>
+                        <button class="btn btn-default">Save Score</button>
+                    </form><br>
 
 
 

@@ -81,6 +81,12 @@ app.get('/logout', function (req, res) {
 		res.redirect('/login');
 });
 
+// TEST CHART SHOW
+app.get("/chart", function (req, res) {
+	var chartPath = path.join(views, 'chart.html');
+	res.sendFile(chartPath);
+});
+
 
 // LOGIN
 app.get("/login", function (req, res) {
@@ -195,6 +201,7 @@ app.get("/:course/newscore", function (req, res) {
 
 app.post("/:course/newscore", function (req, res) {
 	var date = req.body.date;
+	var playingPartners = req.body.playingPartners;
 	var score = req.body.score;
 	var putts = req.body.putts;
 	var courseID = req.body.courseID;
@@ -211,12 +218,12 @@ app.post("/:course/newscore", function (req, res) {
                 _id: req.session.userId
             }, function (err, user) {
 
-			var newScore = new db.Game({date: date, score: score, putts: putts, course_id: courseID, courseName: courseName, totalScore: totalScore, totalPutts: totalPutts, nettScore: nettScore});
+			var newScore = new db.Game({date: date, score: score, putts: putts, course_id: courseID, courseName: courseName, totalScore: totalScore, totalPutts: totalPutts, nettScore: nettScore, playingPartners: playingPartners});
 			newScore.save(function (err, game) {
 				if (err) {
 					// console.log('error submitting new score to the DB: ' + err);
 				} else {
-					// console.log('new score successfully saved to the DB: ' + game);
+					console.log('new score successfully saved to the DB: ' + game);
 				}
 			});
             user.gamesList.push(newScore._id);		// Push the ID of the game to the User profile //

@@ -5,6 +5,7 @@ var Schema = mongoose.Schema;
 
 var gamesSchema = new Schema ({
   date: Date,
+  playingPartners: String,
   course_id: String, 
   score: [Number],
   putts: [Number],

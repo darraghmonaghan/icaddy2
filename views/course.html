@@ -250,7 +250,7 @@
                 </div><br>
 
 
-                <canvas id="myChart" width="400" height="400"></canvas><br>
+<!--                 <canvas id="myChart" width="400" height="400"></canvas><br> -->
 
 
                 <!-- RECENT SCORES TABLE -->
@@ -285,7 +285,14 @@
 
       <script type="text/template" id="rounds-template">
                 <tr>
-                    <td> <%= date %> </td>
+                    <td> <% var d = new Date(date), 
+                                fragments = [
+                                        d.getDate(),
+                                        d.getMonth() + 1,
+                                        d.getFullYear()
+                                ];
+                                print(fragments.join('/'));
+                     %> </td>
                     <td> <%= totalScore %> </td>
                     <td> <%= totalPutts %> </td>
                     <td> <div class="btn-group btn-group-xs close" role="group" aria-label="..." onclick='deleteScore(this)' data-id=<%= _id %> >X</div> </td>
