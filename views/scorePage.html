@@ -52,7 +52,9 @@
           </nav>
           
         <h3 id='courseName'>Course Name: </h3>
-        <h5 id='gameDate'>Date of Round: </h5><br>    
+        <h5 id='gameDate'>Date of Round: </h5>
+        <h5 id='playingPartners'>Playing Partners: </h5>
+        <br>    
 
 
 
@@ -254,13 +256,16 @@
                               var courseName = info.courseName;
                               $('#courseName').append(courseName);
 
+                              var playingPartners = info.playingPartners;
+                              $('#playingPartners').append(playingPartners);
+
+
                               var monthNames = [
                                 "January", "February", "March",
                                 "April", "May", "June", "July",
                                 "August", "September", "October",
                                 "November", "December"
                               ];
-
                               var gameDate = info.date;
                               var slicedDate = gameDate.slice(0, 9);
                               $('#gameDate').append(slicedDate);
