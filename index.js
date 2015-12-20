@@ -224,9 +224,7 @@ app.post("/:course/newscore", function (req, res) {
 		return parseInt(a) + parseInt(b);
 	})
 
-
-
-    db.User.findOne({                 // querying DB to find the current user via the Session ID //
+    db.User.findOne({                 				// querying DB to find the current user via the Session ID //
                 _id: req.session.userId
             }, function (err, user) {
 
@@ -236,14 +234,31 @@ app.post("/:course/newscore", function (req, res) {
 					console.log('error submitting new score to the DB: ' + err);
 				} else {
 					console.log('1) new score successfully saved to the DB: ' + game);
-					// PUT NET SCORE TALLYING HERE //	
-					for (i = 0; i < nettScore.length; i++) {								// nettScore registering correctly, but NOT SAVING TO DB //
-																							// step 1. build out another stage of Logic, and test
-																							// step 2. attempt DB save, using .save??
-						var number = parseInt(nettScore[i])
-						if (number === 0) {
+					
+					// NET SCORE TALLYING HERE //	
+					for (i = 0; i < nettScore.length; i++) {							
+						var number = parseInt(nettScore[i])					// parsing string data into integer for comparison purposes //
+						if (number === -3) {								// Starting here with Alatros //
+							user.albatrosCount++;
+						} else if (number === -2) {
+							user.eagleCount++;
+						} else if (number === -1) {
+							user.birdieCount++;
+						} else if (number === 0) {
 							user.parCount++;
-						}
+						} else if (number === 1) {
+							user.bogeyCount++;
+						} else if (number === 2) {
+							user.doubleBogeyCount++;
+						} else if (number >= 3 ) {							// ending here with Ouches //
+							user.ouchCount++;
+						} user.save(function (err, success) {
+							if (err) {
+								console.log("error in saving Par / Bogey count for user");
+							} else {
+								// console.log('user par and bogey count saved: ' + success);
+							}
+						})
 					}
 				}
 			});
@@ -253,9 +268,12 @@ app.post("/:course/newscore", function (req, res) {
                         return console.log(err);
                     }
                     console.log("2)" + user.firstname + "'s new game has been entered!");
-                    //console.log(success);
                     console.log('3) Ending par count here: ');
 					console.log(user.parCount);
+					console.log('4) Ending bogey count here: ');
+					console.log(user.bogeyCount);
+                    console.log('5) Ending birdie count here: ');
+					console.log(user.birdieCount);
                 });
 			res.redirect('/profile');
 	});
