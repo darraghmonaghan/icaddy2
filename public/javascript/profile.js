@@ -49,7 +49,7 @@ function getData() {
     $('#aceCount').text(ace);
 
 
-    $('#ouchCountPercentage').text(ouchPercentage + '%');                   // setter for displaying the values //
+    $('#ouchCountPercentage').text(ouchPercentage + '%');                   // setter for displaying the % values //
     $('#doubleBogeyCountPercentage').text(doubleBogeyPercentage + '%');
     $('#bogeyCountPercentage').text(bogeyPercentage + '%');
     $('#parCountPercentage').text(parPercentage + '%');
