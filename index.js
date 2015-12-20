@@ -153,7 +153,7 @@ app.get('/scorecard', function (req, res) {
 
 // REDUNDANT ROUTE ??? //
 
-app.post('/scorecard', function (req, res) {							// REDUNDANT ROUTE??? //
+app.post('/scorecard', function (req, res) {						
 	var submission = req.body;
 	var newCourse = new db.Course(submission);
 	console.log('request body info here: ');
@@ -244,19 +244,34 @@ app.post("/:course/newscore", function (req, res) {
 							user.eagleCount++;
 						} else if (number === -1) {
 							user.birdieCount++;
-						} else if (number === 0) {
+						} else if (number === 0) {							
 							user.parCount++;
 						} else if (number === 1) {
 							user.bogeyCount++;
 						} else if (number === 2) {
 							user.doubleBogeyCount++;
-						} else if (number >= 3 ) {							// ending here with Ouches //
+						} else if (number >= 3 ) {							// ending here with 'Ouches' //
 							user.ouchCount++;
-						} user.save(function (err, success) {
+						} user.save(function (err, success) {															// NEED TO REFACTOR TO REDUCE DB ORDERS - PUT OUTSIDE FOR LOOP? //
 							if (err) {
-								console.log("error in saving Par / Bogey count for user");
+								console.log("error in saving Par / Bogey count for user: " + err);
 							} else {
 								// console.log('user par and bogey count saved: ' + success);
+							}
+						})
+					}
+																			// checking for Holes in One //
+					for (y = 0; y < score.length; y++) {
+						var number = parseInt(score[y]);
+						console.log('THE SCORE IS: ' + number);
+						console.log(typeof(number));
+						if (number === 1) {
+							user.aceCount++;
+						} user.save(function (err, success) {
+							if (err) {
+								console.log('error in saving Ace count: ' + err);
+							} else {
+								console.log('ace count saved successfully: ' + success)
 							}
 						})
 					}
@@ -279,14 +294,6 @@ app.post("/:course/newscore", function (req, res) {
 	});
 });
 
-
-  // ouchCount: {type: Number, default: 0, required: true},
-  // doubleBogeyCount: {type: Number, default: 0, required: true},
-  // bogeyCount: {type: Number, default: 0, required: true},
-  // parCount: {type: Number, default: 0, required: true},
-  // birdieCount: {type: Number, default: 0, required: true},
-  // eagleCount: {type: Number, default: 0, required: true},
-  // albatrosCount: {type: Number, default: 0, required: true},
 
 
 

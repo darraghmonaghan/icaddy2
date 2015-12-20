@@ -19,6 +19,7 @@ var userSchema = new Schema ({
   birdieCount: {type: Number, default: 0, required: true},
   eagleCount: {type: Number, default: 0, required: true},
   albatrosCount: {type: Number, default: 0, required: true},
+  aceCount: {type: Number, default: 0, required: true},
 });
 
 

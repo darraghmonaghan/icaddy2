@@ -2,7 +2,7 @@
 function deleteScore(context) {               // Function is called from the ONCLICK attribute in HTML page //
   //console.log(context);
   var deleteID = $(context).data('id');       // Extracting value from Data-ID attribute, taken from INPUT in PROFILE.HTML //
-  console.log(deleteID);
+  // console.log(deleteID);
   $.ajax({                                  
     url: '/games',                            // AJAX request to DELETE route //
     type: 'DELETE',
@@ -34,7 +34,7 @@ function getData() {
     $('#birdieCount').text(birdie);
     $('#eagleCount').text(albatros);
     $('#albatrosCount').text(eagle); 
-    $('#aceCount').text();
+    $('#aceCount').text(ace);
 
     // Need to replicate for %'s //
 
@@ -49,7 +49,7 @@ function getData() {
 	  var scoresTemplate = _.template($('#scores-template').html());
 		
 		games.forEach(function (game){
-      console.log(game);
+      // console.log(game);
 			var scoreHtml = scoresTemplate(game);
 			$("#scores-placeholder").append(scoreHtml);
 		});
