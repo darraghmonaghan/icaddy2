@@ -67,7 +67,7 @@ app.post('/signup', function signup(req, res) {
 			console.log('error creating new user: ' + err);
 			res.redirect('/signup');
 		} else {
-			console.log('new user created successfully: ' + user);
+			// console.log('new user created successfully: ' + user);
 			req.login(user);
 			res.redirect('/profile');
 		}
@@ -119,7 +119,7 @@ app.get("/profile", function userShow(req, res) {
 	if (err) {
 		console.log("Error finding current user: " + err);
 	} else {
-		console.log("Current User details: " + user);
+		// console.log("Current User details: " + user);
 	}
 	var profilePath = path.join(views, 'profile.html');
 	res.sendFile(profilePath);		
@@ -149,9 +149,15 @@ app.get('/scorecard', function (req, res) {
 	res.sendFile(newScorecardPath);
 });
 
-app.post('/scorecard', function (req, res) {
+
+
+// REDUNDANT ROUTE ??? //
+
+app.post('/scorecard', function (req, res) {							// REDUNDANT ROUTE??? //
 	var submission = req.body;
 	var newCourse = new db.Course(submission);
+	console.log('request body info here: ');
+	console.log(submission);
 
     db.User.findOne({                 // querying DB to find the current user via the Session ID //
                 _id: req.session.userId
@@ -165,15 +171,19 @@ app.post('/scorecard', function (req, res) {
 				}
 			});
             user.courseList.push(newCourse._id);
-            user.save(function(err, success) {
+            user.save(function (err, success) {
                     if (err) {
                         return console.log(err);
                     }
                     console.log(user.firstname + "'s new game has been entered!");
+                	// console.log(success);
                 });
 			res.redirect('/profile');
 	});
 });
+
+
+
 
 
 // GETS COURSE INFORMATION - PAR, YARDAGE, NAME etc. //
@@ -183,7 +193,7 @@ app.get('/:course.json', function (req, res) {
 			if (err) {
 				console.log('Couldnt find course: ' + err);
 			} else {
-				console.log('Course found: ' + course);
+				// console.log('Course found: ' + course);
 				res.send(course);
 			}
 	});
@@ -213,6 +223,8 @@ app.post("/:course/newscore", function (req, res) {
 	var totalPutts = putts.reduce(function (a, b) {
 		return parseInt(a) + parseInt(b);
 	})
+	console.log('request body info here: ');
+	console.log(req.body);
 
     db.User.findOne({                 // querying DB to find the current user via the Session ID //
                 _id: req.session.userId
@@ -221,17 +233,18 @@ app.post("/:course/newscore", function (req, res) {
 			var newScore = new db.Game({date: date, score: score, putts: putts, course_id: courseID, courseName: courseName, totalScore: totalScore, totalPutts: totalPutts, nettScore: nettScore, playingPartners: playingPartners});
 			newScore.save(function (err, game) {
 				if (err) {
-					// console.log('error submitting new score to the DB: ' + err);
+					console.log('error submitting new score to the DB: ' + err);
 				} else {
-					console.log('new score successfully saved to the DB: ' + game);
+					// console.log('new score successfully saved to the DB: ' + game);
 				}
 			});
             user.gamesList.push(newScore._id);		// Push the ID of the game to the User profile //
-            user.save(function(err, success) {
+            user.save(function (err, success) {
                     if (err) {
                         return console.log(err);
                     }
                     console.log(user.firstname + "'s new game has been entered!");
+                    console.log(success);
                 });
 			res.redirect('/profile');
 	});
@@ -273,11 +286,6 @@ app.get('/listOfCourses', function (req, res) {
 
 
 
-
-
-
-
-
 // FULL LIST OF SCORES 
 app.get("/scorelist", function (req, res) {
 	// res.send('hello test 1')
@@ -299,7 +307,7 @@ app.get('/round/:round.json', function (req, res) {
 			if (err) {
 				console.log('Couldnt find round: ' + err);
 			} else {
-				console.log('Round found: ' + round);
+				// console.log('Round found: ' + round);
 				res.send(round);
 			}
 	});	
@@ -313,39 +321,6 @@ app.get("/performances/:course", function (req, res) {
 	var coursePerformancePath = path.join(views, 'course.html');
 	res.sendFile(coursePerformancePath);
 });
-
-// AJAX request to retrieve data //
-// app.get('/course/:course', function (req, res) {
-// 	var courseID = req.params.course;
-//     var User = db.User.findOne({_id: req.session.userId}, function (err, user) {
-//     	if (err) {
-//     		console.log("user not found: " + err);
-//     	} else {
-//     		console.log(User);    		
-//     	}
-//    	});
-
-
-
-	// console.log(roundID);
-	// var round = db.Game.find({_id: roundID}, function (err, round) {
-	// 		if (err) {
-	// 			console.log('Couldnt find round: ' + err);
-	// 		} else {
-	// 			console.log('Round found: ' + round);
-	// 			res.send(round);
-	// 		}
-	// });	
-// });
-
-// Find current user   DONE
-// Extract Course ID   DONE
-// Populate GamesList array for User
-// Cycle through and check each games course_id against course_id extracted
-// Push all mathing ones to new array and render / send
-
-
-
 
 
 
