@@ -223,8 +223,8 @@ app.post("/:course/newscore", function (req, res) {
 	var totalPutts = putts.reduce(function (a, b) {
 		return parseInt(a) + parseInt(b);
 	})
-	console.log('request body info here: ');
-	console.log(req.body);
+
+
 
     db.User.findOne({                 // querying DB to find the current user via the Session ID //
                 _id: req.session.userId
@@ -235,7 +235,16 @@ app.post("/:course/newscore", function (req, res) {
 				if (err) {
 					console.log('error submitting new score to the DB: ' + err);
 				} else {
-					// console.log('new score successfully saved to the DB: ' + game);
+					console.log('1) new score successfully saved to the DB: ' + game);
+					// PUT NET SCORE TALLYING HERE //	
+					for (i = 0; i < nettScore.length; i++) {								// nettScore registering correctly, but NOT SAVING TO DB //
+																							// step 1. build out another stage of Logic, and test
+																							// step 2. attempt DB save, using .save??
+						var number = parseInt(nettScore[i])
+						if (number === 0) {
+							user.parCount++;
+						}
+					}
 				}
 			});
             user.gamesList.push(newScore._id);		// Push the ID of the game to the User profile //
@@ -243,12 +252,24 @@ app.post("/:course/newscore", function (req, res) {
                     if (err) {
                         return console.log(err);
                     }
-                    console.log(user.firstname + "'s new game has been entered!");
-                    console.log(success);
+                    console.log("2)" + user.firstname + "'s new game has been entered!");
+                    //console.log(success);
+                    console.log('3) Ending par count here: ');
+					console.log(user.parCount);
                 });
 			res.redirect('/profile');
 	});
 });
+
+
+  // ouchCount: {type: Number, default: 0, required: true},
+  // doubleBogeyCount: {type: Number, default: 0, required: true},
+  // bogeyCount: {type: Number, default: 0, required: true},
+  // parCount: {type: Number, default: 0, required: true},
+  // birdieCount: {type: Number, default: 0, required: true},
+  // eagleCount: {type: Number, default: 0, required: true},
+  // albatrosCount: {type: Number, default: 0, required: true},
+
 
 
 // DELETE A SPECIFIC GAME
