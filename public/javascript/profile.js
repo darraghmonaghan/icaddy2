@@ -27,7 +27,19 @@ function getData() {
     var albatros = user.albatrosCount;
     var ace = user.aceCount;
 
-    $('#ouchCount').text(ouch);
+    var totalHoles = (ouch + doubleBogey + bogey + par + birdie + eagle + albatros); 
+
+    // percentages //
+    var ouchPercentage = ((ouch / totalHoles) * 100).toFixed(2);
+    var doubleBogeyPercentage = ((doubleBogey / totalHoles) * 100).toFixed(2);
+    var bogeyPercentage = ((bogey / totalHoles) * 100).toFixed(2);
+    var parPercentage = ((par / totalHoles) * 100).toFixed(2);
+    var birdiePercentage = ((birdie / totalHoles) * 100).toFixed(2);
+    var eaglePercentage = ((eagle / totalHoles) * 100).toFixed(2);
+    var albatrosPercentage = ((albatros / totalHoles) * 100).toFixed(2);
+    var acePercentage = ((ace / totalHoles) * 100).toFixed(2);
+
+    $('#ouchCount').text(ouch);                   // setter for displaying the values //
     $('#doubleBogeyCount').text(doubleBogey);
     $('#bogeyCount').text(bogey);
     $('#parCount').text(par);
@@ -36,14 +48,18 @@ function getData() {
     $('#albatrosCount').text(eagle); 
     $('#aceCount').text(ace);
 
-    // Need to replicate for %'s //
 
+    $('#ouchCountPercentage').text(ouchPercentage + '%');                   // setter for displaying the values //
+    $('#doubleBogeyCountPercentage').text(doubleBogeyPercentage + '%');
+    $('#bogeyCountPercentage').text(bogeyPercentage + '%');
+    $('#parCountPercentage').text(parPercentage + '%');
+    $('#birdieCountPercentage').text(birdiePercentage + '%');
+    $('#eagleCountPercentage').text(albatrosPercentage + '%');
+    $('#albatrosCountPercentage').text(eaglePercentage + '%'); 
+    $('#aceCountPercentage').text(acePercentage + '%');
 
  
     // $('#hello').append(user.firstname);    // Get request and then JQuery to welcome user by firstname //
-
-    // console.log(typeof(ouchCount));
-    // console.log('Ouch Count Here: ' + user.ouchCount);
 
     var games = user.gamesList;
 	  var scoresTemplate = _.template($('#scores-template').html());
