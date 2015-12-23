@@ -12,7 +12,8 @@ var gamesSchema = new Schema ({
   nettScore: [Number],
   courseName: String,
   totalScore: Number,
-  totalPutts: Number
+  totalPutts: Number,
+  comments: String
 });
 
 

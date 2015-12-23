@@ -212,6 +212,7 @@ app.get("/:course/newscore", function (req, res) {
 app.post("/:course/newscore", function (req, res) {
 	var date = req.body.date;
 	var playingPartners = req.body.playingPartners;
+	var comments = req.body.comments;
 	var score = req.body.score;
 	var putts = req.body.putts;
 	var courseID = req.body.courseID;
@@ -228,7 +229,7 @@ app.post("/:course/newscore", function (req, res) {
                 _id: req.session.userId
             }, function (err, user) {
 
-			var newScore = new db.Game({date: date, score: score, putts: putts, course_id: courseID, courseName: courseName, totalScore: totalScore, totalPutts: totalPutts, nettScore: nettScore, playingPartners: playingPartners});
+			var newScore = new db.Game({date: date, score: score, putts: putts, course_id: courseID, courseName: courseName, totalScore: totalScore, totalPutts: totalPutts, nettScore: nettScore, playingPartners: playingPartners, comments: comments});
 			newScore.save(function (err, game) {
 				if (err) {
 					console.log('error submitting new score to the DB: ' + err);
