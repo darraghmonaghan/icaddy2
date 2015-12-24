@@ -1,4 +1,10 @@
-  var requiredGames = [];
+  var requiredGames = [];       // array for all related games, played on specific course //
+
+  var graphPutts = [];
+  var graphScore = [];
+  var graphDates = [];
+
+
 
             // AJAX request to get course data - name, par etc. //
             function currentUserData() {
@@ -9,19 +15,26 @@
                         url: "/user.json",
                         type: 'GET',
                         datatype: 'json',
+                        async: false,
                         success: function(data) {
                         
-                              var parsed = JSON.parse(data);
+                              var parsed = JSON.parse(data);                                   
                               parsed.gamesList.forEach(function (game) {
                                     if (game.course_id === courseID) {
-                                        requiredGames.push(game);
-                                              console.log('game pushed to requiredGames[]');
+                                              requiredGames.push(game);                         // pushing all games on selected course to the array requiredGames //
+                                              // console.log(typeof(game.totalPutts));
+                                              graphPutts.push(game.totalPutts);                 // pushing data for graphs - PUTTS //
+                                              graphScore.push(game.totalScore);                 // pushing data for graphs - SCORES //
+                                              graphDates.push(game.date);                       // pushing data for graphs - DATES //         
+
+                                              // console.log('game pushed to requiredGames[]');
                                               var roundsTemplate = _.template($('#rounds-template').html());
                                               var roundsHtml = roundsTemplate(game);
                                               $("#rounds-placeholder").append(roundsHtml);
                                     } else {
-                                        console.log('wrong courseID, game not pushed');
+                                        // console.log('wrong courseID, game not pushed');
                                     }
+
                               });
                               summaryData(); // summarizing the shortlisted data for the specific golf course
                               avgPerHole(); // function for avg score per hole
@@ -29,6 +42,47 @@
                         }
                 });
             };
+
+
+            // BUILDING THE LINE CHART //
+
+                var lineChartData = {
+                    labels : graphDates,                                // X axis taking the dates exctracted from all games played //
+                    datasets : [
+                        {
+                            label: "Putting Performance Trend",
+                            fillColor : "rgba(220,220,220,0.2)",
+                            strokeColor : "rgba(220,220,220,1)",
+                            pointColor : "rgba(220,220,220,1)",
+                            pointStrokeColor : "#fff",
+                            pointHighlightFill : "#fff",
+                            pointHighlightStroke : "rgba(220,220,220,1)",
+                            data : graphScore                               // global variable created at top of page //
+                        },
+                        {
+                            label: "My Second dataset",
+                            fillColor : "rgba(151,187,205,0.2)",
+                            strokeColor : "rgba(151,187,205,1)",
+                            pointColor : "rgba(151,187,205,1)",
+                            pointStrokeColor : "#fff",
+                            pointHighlightFill : "#fff",
+                            pointHighlightStroke : "rgba(151,187,205,1)",
+                            data : graphPutts                               // global variable created at top of page //
+                        }
+                    ]
+                }
+
+                window.onload = function(){
+                    var ctx = document.getElementById("canvas").getContext("2d");
+                    window.myLine = new Chart(ctx).Line(lineChartData, {
+                        responsive: true
+                    });
+                }
+
+
+
+
+
 
 
             function summaryData() {
@@ -149,7 +203,9 @@
                 });
                 first9GrossTotal.push(scoresSum);
                 var avg = (scoresSum / rounds).toFixed(3);
-                $('#avgGross1').text(avg);              
+                $('#avgGross1').text(avg);
+
+                // call a function here??? - calculate Avg Nett  //             
             }
 
             function avgPerHole2() {
@@ -744,39 +800,6 @@
 
 
 
-            // var myLineChart = new Chart(ctx).Line(data, options);
-
-            var data = {
-                labels: ["January", "February", "March", "April", "May", "June", "July"],
-                datasets: [
-                    {
-                        label: "My First dataset",
-                        fillColor: "rgba(220,220,220,0.2)",
-                        strokeColor: "rgba(220,220,220,1)",
-                        pointColor: "rgba(220,220,220,1)",
-                        pointStrokeColor: "#fff",
-                        pointHighlightFill: "#fff",
-                        pointHighlightStroke: "rgba(220,220,220,1)",
-                        data: [65, 59, 80, 81, 56, 55, 40]
-                    },
-                    {
-                        label: "My Second dataset",
-                        fillColor: "rgba(151,187,205,0.2)",
-                        strokeColor: "rgba(151,187,205,1)",
-                        pointColor: "rgba(151,187,205,1)",
-                        pointStrokeColor: "#fff",
-                        pointHighlightFill: "#fff",
-                        pointHighlightStroke: "rgba(151,187,205,1)",
-                        data: [28, 48, 40, 19, 86, 27, 90]
-                    }
-                ]
-            };
-
-
-
-
-
-
 
 
 
@@ -880,6 +903,11 @@
                         }
                 });
             }
+
+
+
+
+
 
 
             $(function() {

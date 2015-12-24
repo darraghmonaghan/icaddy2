@@ -59,6 +59,9 @@ function getData() {
     $('#aceCountPercentage').text(acePercentage + '%');
 
  
+    // call a function here, to create PIE CHART, so that the variables can be accessed //   ?????
+
+
     // $('#hello').append(user.firstname);    // Get request and then JQuery to welcome user by firstname //
 
     var games = user.gamesList;

@@ -8,8 +8,8 @@
         <script src="/vendor/underscore/underscore-min.js"></script>
         <script src="/vendor/bootstrap/dist/js/bootstrap.min.js"></script>
         <link rel="stylesheet" href="/vendor/bootstrap/dist/css/bootstrap.min.css">
-        <script src='Chart.min.js'></script>
-        <script src="Chart.js"></script>
+        <script src='/vendor/Chart.js/Chart.min.js'></script>
+        <script src="/vendor/Chart.js/Chart.js"></script>
 <!--         <link rel="stylesheet" type="text/css" href="/static/css/newscore.css"> -->
 
         <script type="text/javascript" src="http://code.jquery.com/jquery-2.1.3.min.js"></script>
@@ -19,27 +19,49 @@
     <body>
     		<h1>Test Chart Show</h1>
 
-            <canvas id="buyers" width="600" height="400"></canvas>
+            <canvas id="canvas" width="100" height="50"></canvas>
 
     </body>
 </html>
 
 
 <script>
-    var buyers = document.getElementById('buyers').getContext('2d');
-    new Chart(buyers).Line(buyerData);
 
-    var buyerData = {
-        labels : ["January","February","March","April","May","June"],
-        datasets : [
-            {
-                fillColor : "rgba(172,194,132,0.4)",
-                strokeColor : "#ACC26D",
-                pointColor : "#fff",
-                pointStrokeColor : "#9DB86D",
-                data : [203,156,99,251,305,247]
-            }
-        ]
-    }
+
+        // var randomScalingFactor = function(){ return Math.round(Math.random()*100)};
+        var lineChartData = {
+            labels : ["January","February","March","April","May","June","July"],
+            datasets : [
+                {
+                    label: "My First dataset",
+                    fillColor : "rgba(220,220,220,0.2)",
+                    strokeColor : "rgba(220,220,220,1)",
+                    pointColor : "rgba(220,220,220,1)",
+                    pointStrokeColor : "#fff",
+                    pointHighlightFill : "#fff",
+                    pointHighlightStroke : "rgba(220,220,220,1)",
+                    data : [1, 34, 12, 23, 32, 23, 14]    // a function can be called here
+                },
+                {
+                    label: "My Second dataset",
+                    fillColor : "rgba(151,187,205,0.2)",
+                    strokeColor : "rgba(151,187,205,1)",
+                    pointColor : "rgba(151,187,205,1)",
+                    pointStrokeColor : "#fff",
+                    pointHighlightFill : "#fff",
+                    pointHighlightStroke : "rgba(151,187,205,1)",
+                    data : [23, 15, 62, 13, 43, 13, 43]
+                }
+            ]
+        }
+
+
+        window.onload = function(){
+            var ctx = document.getElementById("canvas").getContext("2d");
+            window.myLine = new Chart(ctx).Line(lineChartData, {
+                responsive: true
+            });
+        }
+
     
 </script>
