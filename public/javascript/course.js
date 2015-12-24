@@ -5,6 +5,17 @@
   var graphDates = [];
 
 
+            function graphDateReadable(date) {                      // creating user friendly dates for the historic course performance graph //
+                var d = new Date(date), 
+                    fragments = [
+                                        d.getDate(),
+                                        d.getMonth() + 1,
+                                        d.getFullYear()
+                                ];
+                var result = (fragments.join('/'));
+                graphDates.push(result);
+            }
+
 
             // AJAX request to get course data - name, par etc. //
             function currentUserData() {
@@ -22,12 +33,11 @@
                               parsed.gamesList.forEach(function (game) {
                                     if (game.course_id === courseID) {
                                               requiredGames.push(game);                         // pushing all games on selected course to the array requiredGames //
-                                              // console.log(typeof(game.totalPutts));
+
                                               graphPutts.push(game.totalPutts);                 // pushing data for graphs - PUTTS //
                                               graphScore.push(game.totalScore);                 // pushing data for graphs - SCORES //
-                                              graphDates.push(game.date);                       // pushing data for graphs - DATES //         
+                                              graphDateReadable(game.date);                     // function to push data for graphs - DATES //  
 
-                                              // console.log('game pushed to requiredGames[]');
                                               var roundsTemplate = _.template($('#rounds-template').html());
                                               var roundsHtml = roundsTemplate(game);
                                               $("#rounds-placeholder").append(roundsHtml);
