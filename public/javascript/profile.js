@@ -59,7 +59,61 @@ function getData() {
     $('#aceCountPercentage').text(acePercentage + '%');
 
  
-    // call a function here, to create PIE CHART, so that the variables can be accessed //   ?????
+
+    // BUILDING THE PIE CHART //
+          
+$(document).ready(function () {
+    var pieData = [
+            {
+                value: ouch,
+                color:"#F7464A",
+                highlight: "#FF5A5E",
+                label: "Ouch"
+            },
+            {
+                value: doubleBogey,
+                color: "#FDB45C",
+                highlight: "#FFC870",
+                label: "Double Bogey's"
+            },
+            {
+                value: bogey,
+                color: "#F7EC6A",
+                highlight: "#F5E427",
+                label: "Bogey's"
+            },
+            {
+                value: par,
+                color: "#F7FAF7",
+                highlight: "#CFD4CF",
+                label: "Par's"
+            },
+            {
+                value: birdie,
+                color: "#16DB16",
+                highlight: "#5EF25E",
+                label: "Birdie's"
+            },
+            {
+                value: eagle,
+                color: "#00A4F7",
+                highlight: "#53BFF5",
+                label: "Eagle's"
+            },
+            {
+                value: albatros,
+                color: "#4227F2",
+                highlight: "#624DF0",
+                label: "Albatros'"
+            },            
+    ]
+
+    var myPie = new Chart(document.getElementById("canvas").getContext("2d")).Pie(pieData, {
+        labelAlign: 'center'
+    });
+});
+
+
 
 
     // $('#hello').append(user.firstname);    // Get request and then JQuery to welcome user by firstname //
