@@ -114,20 +114,27 @@ $(document).ready(function () {
 });
 
 
+ // Loop for rendering RECENT ROUNDS //
 
 
-    // $('#hello').append(user.firstname);    // Get request and then JQuery to welcome user by firstname //
-
-    var games = user.gamesList;
+      var games = user.gamesList;
 	  var scoresTemplate = _.template($('#scores-template').html());
+      console.log(games);
 		
-		games.forEach(function (game){
-      // console.log(game);
-			var scoreHtml = scoresTemplate(game);
-			$("#scores-placeholder").append(scoreHtml);
-		});
+        for (i = 0; i <= 4; i++) {
+            printGame(games[i]);
+            console.log(games[i]);
+        }   
+
+        function printGame(game) {
+            var scoreHtml = scoresTemplate(game);
+            $("#scores-placeholder").append(scoreHtml);            
+        }
 	});
 };
+
+
+///////////////////////////////////////////
 
 
 $(function() {
