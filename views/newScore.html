@@ -184,31 +184,53 @@
 
                                         </div>
 
-                                        <div class='col-xs-3 col-md-2 col-lg-2'>
+                                        <div class='col-xs-1 col-md-1 col-lg-1'>
 
                                               <p class='scoreHeader'> + / - </p><br>
 
                                           <!-- Nett Score Holes 1 - 18 -->
-                                                <input type="number" name='nett[]' id='nett1' class="form-control" placeholder="1st hole" aria-describedby="sizing-addon2" required='true'>
-                                                <input type="number" name='nett[]' id='nett2' class="form-control" placeholder="2nd hole" aria-describedby="sizing-addon2" required='true'>
-                                                <input type="number" name='nett[]' id='nett3' class="form-control" placeholder="3rd hole" aria-describedby="sizing-addon2" required='true'>
-                                                <input type="number" name='nett[]' id='nett4' class="form-control" placeholder="4th hole" aria-describedby="sizing-addon2" required='true'>
-                                                <input type="number" name='nett[]' id='nett5' class="form-control" placeholder="5th hole" aria-describedby="sizing-addon2" required='true'>
-                                                <input type="number" name='nett[]' id='nett6' class="form-control" placeholder="6th hole" aria-describedby="sizing-addon2" required='true'>
-                                                <input type="number" name='nett[]' id='nett7' class="form-control" placeholder="7th hole" aria-describedby="sizing-addon2" required='true'>
-                                                <input type="number" name='nett[]' id='nett8' class="form-control" placeholder="8th hole" aria-describedby="sizing-addon2" required='true'>
-                                                <input type="number" name='nett[]' id='nett9' class="form-control" placeholder="9th hole" aria-describedby="sizing-addon2" required='true'><br>
-                                                <input type="number" name='nett[]' id='nett10' class="form-control" placeholder="10th hole" aria-describedby="sizing-addon2" required='true'>
-                                                <input type="number" name='nett[]' id='nett11' class="form-control" placeholder="11th hole" aria-describedby="sizing-addon2" required='true'>
-                                                <input type="number" name='nett[]' id='nett12' class="form-control" placeholder="12th hole" aria-describedby="sizing-addon2" required='true'>
-                                                <input type="number" name='nett[]' id='nett13' class="form-control" placeholder="13th hole" aria-describedby="sizing-addon2" required='true'>
-                                                <input type="number" name='nett[]' id='nett14' class="form-control" placeholder="14th hole" aria-describedby="sizing-addon2" required='true'>
-                                                <input type="number" name='nett[]' id='nett15' class="form-control" placeholder="15h hole" aria-describedby="sizing-addon2" required='true'>
-                                                <input type="number" name='nett[]' id='nett16' class="form-control" placeholder="16th hole" aria-describedby="sizing-addon2" required='true'>
-                                                <input type="number" name='nett[]' id='nett17' class="form-control" placeholder="17th hole" aria-describedby="sizing-addon2" required='true'>
-                                                <input type="number" name='nett[]' id='nett18' class="form-control" placeholder="18th hole" aria-describedby="sizing-addon2" required='true'>
-
+                                                        <div id='nett1' class='form-control'></div>
+                                                        <div id='nett2' class='form-control'></div>                                              
+                                                        <div id='nett3' class='form-control'></div>
+                                                        <div id='nett4' class='form-control'></div>
+                                                        <div id='nett5' class='form-control'></div>
+                                                        <div id='nett6' class='form-control'></div>
+                                                        <div id='nett7' class='form-control'></div>
+                                                        <div id='nett8' class='form-control'></div>
+                                                        <div id='nett9' class='form-control'></div><br>
+                                                        <div id='nett10' class='form-control'></div>
+                                                        <div id='nett11' class='form-control'></div>
+                                                        <div id='nett12' class='form-control'></div>
+                                                        <div id='nett13' class='form-control'></div>
+                                                        <div id='nett14' class='form-control'></div>
+                                                        <div id='nett15' class='form-control'></div>
+                                                        <div id='nett16' class='form-control'></div>
+                                                        <div id='nett17' class='form-control'></div>
+                                                        <div id='nett18' class='form-control'></div>
                                         </div>
+
+
+                                        <!-- HIDDEN FIELDS FOR THE ENTRY OF NETT SCORE -->
+
+                                                <input type="hidden" name='nett[]' id='hiddenNett1' class="form-control" placeholder="1st hole" aria-describedby="sizing-addon2" required='true'>
+                                                <input type="hidden" name='nett[]' id='hiddenNett2' class="form-control" placeholder="2nd hole" aria-describedby="sizing-addon2" required='true'>
+                                                <input type="hidden" name='nett[]' id='hiddenNett3' class="form-control" placeholder="3rd hole" aria-describedby="sizing-addon2" required='true'>
+                                                <input type="hidden" name='nett[]' id='hiddenNett4' class="form-control" placeholder="4th hole" aria-describedby="sizing-addon2" required='true'>
+                                                <input type="hidden" name='nett[]' id='hiddenNett5' class="form-control" placeholder="5th hole" aria-describedby="sizing-addon2" required='true'>
+                                                <input type="hidden" name='nett[]' id='hiddenNett6' class="form-control" placeholder="6th hole" aria-describedby="sizing-addon2" required='true'>
+                                                <input type="hidden" name='nett[]' id='hiddenNett7' class="form-control" placeholder="7th hole" aria-describedby="sizing-addon2" required='true'>
+                                                <input type="hidden" name='nett[]' id='hiddenNett8' class="form-control" placeholder="8th hole" aria-describedby="sizing-addon2" required='true'>
+                                                <input type="hidden" name='nett[]' id='hiddenNett9' class="form-control" placeholder="9th hole" aria-describedby="sizing-addon2" required='true'><br>
+                                                <input type="hidden" name='nett[]' id='hiddenNett10' class="form-control" placeholder="10th hole" aria-describedby="sizing-addon2" required='true'>
+                                                <input type="hidden" name='nett[]' id='hiddenNett11' class="form-control" placeholder="11th hole" aria-describedby="sizing-addon2" required='true'>
+                                                <input type="hidden" name='nett[]' id='hiddenNett12' class="form-control" placeholder="12th hole" aria-describedby="sizing-addon2" required='true'>
+                                                <input type="hidden" name='nett[]' id='hiddenNett13' class="form-control" placeholder="13th hole" aria-describedby="sizing-addon2" required='true'>
+                                                <input type="hidden" name='nett[]' id='hiddenNett14' class="form-control" placeholder="14th hole" aria-describedby="sizing-addon2" required='true'>
+                                                <input type="hidden" name='nett[]' id='hiddenNett15' class="form-control" placeholder="15h hole" aria-describedby="sizing-addon2" required='true'>
+                                                <input type="hidden" name='nett[]' id='hiddenNett16' class="form-control" placeholder="16th hole" aria-describedby="sizing-addon2" required='true'>
+                                                <input type="hidden" name='nett[]' id='hiddenNett17' class="form-control" placeholder="17th hole" aria-describedby="sizing-addon2" required='true'>
+                                                <input type="hidden" name='nett[]' id='hiddenNett18' class="form-control" placeholder="18th hole" aria-describedby="sizing-addon2" required='true'>
+
 
                                 </div>
 

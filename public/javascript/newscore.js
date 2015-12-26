@@ -55,7 +55,8 @@
             var score = $('#score1').val();
             var par = $('#par1').val();
             var math = ((score) - (par));
-            $('#nett1').val(math);
+            $('#nett1').text(math);
+            $('#hiddenNett1').val(math);
             maxPutts1();
      }
 
@@ -63,7 +64,8 @@
             var score = $('#score2').val();
             var par = $('#par2').val();
             var math = ((score) - (par));
-            $('#nett2').val(math);
+            $('#nett2').text(math);
+            $('#hiddenNett2').val(math);
             maxPutts2();
      }
 
@@ -71,7 +73,8 @@
             var score = $('#score3').val();
             var par = $('#par3').val();
             var math = ((score) - (par));
-            $('#nett3').val(math);
+            $('#nett3').text(math);
+            $('#hiddenNett3').val(math);
             maxPutts3();
      }
 
@@ -79,7 +82,8 @@
             var score = $('#score4').val();
             var par = $('#par4').val();
             var math = ((score) - (par));
-            $('#nett4').val(math);
+            $('#nett4').text(math);
+            $('#hiddenNett4').val(math);
             maxPutts4();
      }
 
@@ -87,7 +91,8 @@
             var score = $('#score5').val();
             var par = $('#par5').val();
             var math = ((score) - (par));
-            $('#nett5').val(math);
+            $('#nett5').text(math);
+            $('#hiddenNett5').val(math);
             maxPutts5();
      }
 
@@ -95,7 +100,8 @@
             var score = $('#score6').val();
             var par = $('#par6').val();
             var math = ((score) - (par));
-            $('#nett6').val(math);
+            $('#nett6').text(math);
+            $('#hiddenNett6').val(math);
             maxPutts6();
      }
 
@@ -103,7 +109,8 @@
             var score = $('#score7').val();
             var par = $('#par7').val();
             var math = ((score) - (par));
-            $('#nett7').val(math);
+            $('#nett7').text(math);
+            $('#hiddenNett7').val(math);
             maxPutts7();
      }
 
@@ -111,7 +118,8 @@
             var score = $('#score8').val();
             var par = $('#par8').val();
             var math = ((score) - (par));
-            $('#nett8').val(math);
+            $('#nett8').text(math);
+            $('#hiddenNett8').val(math);
             maxPutts8();
      }
 
@@ -119,7 +127,8 @@
             var score = $('#score9').val();
             var par = $('#par9').val();
             var math = ((score) - (par));
-            $('#nett9').val(math);
+            $('#nett9').text(math);
+            $('#hiddenNett9').val(math);
             maxPutts9();
      }
 
@@ -127,7 +136,8 @@
             var score = $('#score10').val();
             var par = $('#par10').val();
             var math = ((score) - (par));
-            $('#nett10').val(math);
+            $('#nett10').text(math);
+            $('#hiddenNett10').val(math);            
             maxPutts10();
      }
 
@@ -135,7 +145,8 @@
             var score = $('#score11').val();
             var par = $('#par11').val();
             var math = ((score) - (par));
-            $('#nett11').val(math);
+            $('#nett11').text(math);
+            $('#hiddenNett11').val(math);
             maxPutts11();
      }
 
@@ -143,7 +154,8 @@
             var score = $('#score12').val();
             var par = $('#par12').val();
             var math = ((score) - (par));
-            $('#nett12').val(math);
+            $('#nett12').text(math);
+            $('#hiddenNett12').val(math);
             maxPutts12();
      }
 
@@ -151,7 +163,8 @@
             var score = $('#score13').val();
             var par = $('#par13').val();
             var math = ((score) - (par));
-            $('#nett13').val(math);
+            $('#nett13').text(math);
+            $('#hiddenNett13').val(math);
             maxPutts13();
      }
 
@@ -159,7 +172,8 @@
             var score = $('#score14').val();
             var par = $('#par14').val();
             var math = ((score) - (par));
-            $('#nett14').val(math);
+            $('#nett14').text(math);
+            $('#hiddenNett14').val(math);
             maxPutts14();
      }
 
@@ -167,7 +181,8 @@
             var score = $('#score15').val();
             var par = $('#par15').val();
             var math = ((score) - (par));
-            $('#nett15').val(math);
+            $('#nett15').text(math);
+            $('#hiddenNett15').val(math);
             maxPutts15();
      }
 
@@ -175,7 +190,8 @@
             var score = $('#score16').val();
             var par = $('#par16').val();
             var math = ((score) - (par));
-            $('#nett16').val(math);
+            $('#nett16').text(math);
+            $('#hiddenNett16').val(math);
             maxPutts16();
      }
 
@@ -183,7 +199,8 @@
             var score = $('#score17').val();
             var par = $('#par17').val();
             var math = ((score) - (par));
-            $('#nett17').val(math);
+            $('#nett17').text(math);
+            $('#hiddenNett17').val(math);
             maxPutts17();
      }
 
@@ -191,7 +208,8 @@
             var score = $('#score18').val();
             var par = $('#par18').val();
             var math = ((score) - (par));
-            $('#nett18').val(math);
+            $('#nett18').text(math);
+            $('#hiddenNett18').val(math);
             maxPutts18();
      }
 

@@ -15,6 +15,8 @@ function deleteScore(context) {               // Function is called from the ONC
 
 
 
+///////////////////////////// BUILDING the HOLE SUMMARY FEATURE //////////////////////////
+
 function getData() {
   $.get('/user.json', function (data) {
     var user = JSON.parse(data);
@@ -39,7 +41,8 @@ function getData() {
     var albatrosPercentage = ((albatros / totalHoles) * 100).toFixed(2);
     var acePercentage = ((ace / totalHoles) * 100).toFixed(2);
 
-    $('#ouchCount').text(ouch);                   // setter for displaying the values //
+    // setter for displaying the values //
+    $('#ouchCount').text(ouch);                   
     $('#doubleBogeyCount').text(doubleBogey);
     $('#bogeyCount').text(bogey);
     $('#parCount').text(par);
@@ -48,8 +51,8 @@ function getData() {
     $('#albatrosCount').text(eagle); 
     $('#aceCount').text(ace);
 
-
-    $('#ouchCountPercentage').text(ouchPercentage + '%');                   // setter for displaying the % values //
+    // setter for displaying the percentages //   
+    $('#ouchCountPercentage').text(ouchPercentage + '%');                  
     $('#doubleBogeyCountPercentage').text(doubleBogeyPercentage + '%');
     $('#bogeyCountPercentage').text(bogeyPercentage + '%');
     $('#parCountPercentage').text(parPercentage + '%');
@@ -60,7 +63,8 @@ function getData() {
 
  
 
-    // BUILDING THE PIE CHART //
+
+/////////////////////// BUILDING THE PIE CHART //////////////////////////
           
 $(document).ready(function () {
     var pieData = [
@@ -114,7 +118,9 @@ $(document).ready(function () {
 });
 
 
- // Loop for rendering RECENT ROUNDS //
+
+
+ ////////////////////   Loop for rendering 5 LATEST ROUNDS /////////////////////////
 
 
       var games = user.gamesList;
