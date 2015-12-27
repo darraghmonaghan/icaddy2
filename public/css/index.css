@@ -1,0 +1,92 @@
+
+
+body {
+	background-color: #EFEFEF;
+}
+
+* {
+	border-radius: 0	!important;					/**  Removing rounded edges from  everything  **/
+	font-family: 'Pontano Sans', sans-serif;
+}
+
+
+
+/*   NAVBAR RELATED    */
+
+.container-fluid {
+	border-color: #EFEFEF;
+}
+
+.navbar {
+	background-color: #EFEFEF;
+	border-color: #EFEFEF;
+}
+
+.navbar-toggle {
+	background-color: #EFEFEF;
+}
+
+.navbar-right {
+	background-color: #EFEFEF;
+}
+
+.dropdown-menu {
+	background-color: #EFEFEF;	
+}
+
+.dropdown-toggle {
+	background-color: #EFEFEF;
+}
+
+.dropdown {
+	background-color: #EFEFEF;
+}
+
+.dropdown.open {
+	background-color: #EFEFEF;
+}
+
+.navbarHover:hover {
+	background-color: yellow;
+}
+
+
+
+
+
+/*  FEATURE BOXES   */
+
+.featureHeader {
+	background-color: rgb(195, 81, 81)		!important;
+	font-size: 1.1em						!important;
+	/*font-weight: 700					 	!important;*/
+	color: #EFEFEF 							!important; 
+}
+
+.featureHeader2 {
+	background-color: rgba(195, 81, 81, 0.4);
+	font-weight: 500;
+	color: #333333;
+}
+
+.roundHover:hover {
+	background-color: rgba(1, 123, 189, 0.4);
+}
+
+
+
+
+
+
+/*    Specific Course Performance Graph    */
+
+#courseGraph {
+	width: 95%;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+
+
+
+

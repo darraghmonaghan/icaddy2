@@ -81,11 +81,6 @@ app.get('/logout', function (req, res) {
 		res.redirect('/login');
 });
 
-// TEST CHART SHOW
-app.get("/chart", function (req, res) {
-	var chartPath = path.join(views, 'chart.html');
-	res.sendFile(chartPath);
-});
 
 
 // LOGIN

@@ -60,20 +60,20 @@
                     labels : graphDates,                                // X axis taking the dates exctracted from all games played //
                     datasets : [
                         {
-                            label: "Putting Performance Trend",
-                            fillColor : "rgba(220,220,220,0.2)",
-                            strokeColor : "rgba(220,220,220,1)",
-                            pointColor : "rgba(220,220,220,1)",
+                            label: "Putting Performance",
+                            fillColor : "rgba(1,147,183,0.2)",
+                            strokeColor : "rgba(6,62,83,1)",
+                            pointColor : "rgba(6,62,83,1)",
                             pointStrokeColor : "#fff",
                             pointHighlightFill : "#fff",
                             pointHighlightStroke : "rgba(220,220,220,1)",
                             data : graphScore                               // global variable created at top of page //
                         },
                         {
-                            label: "My Second dataset",
-                            fillColor : "rgba(151,187,205,0.2)",
-                            strokeColor : "rgba(151,187,205,1)",
-                            pointColor : "rgba(151,187,205,1)",
+                            label: "Stroke Total",
+                            fillColor : "rgba(224,81,81,0.2)",
+                            strokeColor : "rgba(195,81,81,1)",
+                            pointColor : "rgba(195,81,81,1)",
                             pointStrokeColor : "#fff",
                             pointHighlightFill : "#fff",
                             pointHighlightStroke : "rgba(151,187,205,1)",
