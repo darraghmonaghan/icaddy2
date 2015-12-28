@@ -1,7 +1,7 @@
 
 
 body {
-	background-color: #EFEFEF;
+	background-color: white;
 }
 
 * {
@@ -14,36 +14,36 @@ body {
 /*****************   NAVBAR RELATED    *******************/
 
 .container-fluid {
-	border-color: #EFEFEF;
+	border-color: white;
 }
 
 .navbar {
-	background-color: #EFEFEF;
-	border-color: #EFEFEF;
+	background-color: white;
+	border-color: white;
 }
 
 .navbar-toggle {
-	background-color: #EFEFEF;
+	background-color: white;
 }
 
 .navbar-right {
-	background-color: #EFEFEF;
+	background-color: white;
 }
 
 .dropdown-menu {
-	background-color: #EFEFEF;	
+	background-color: white;	
 }
 
 .dropdown-toggle {
-	background-color: #EFEFEF;
+	background-color: white;
 }
 
 .dropdown {
-	background-color: #EFEFEF;
+	background-color: white;
 }
 
 .dropdown.open {
-	background-color: #EFEFEF;
+	background-color: white;
 }
 
 
@@ -62,7 +62,7 @@ body {
 .featureHeader {
 	background-color: rgb(195, 81, 81)		!important;
 	font-size: 1.1em						!important;
-	color: #EFEFEF 							!important; 
+	color: white 							!important; 
 }
 
 .featureHeader2 {
@@ -71,10 +71,9 @@ body {
 	color: #333333;
 }
 
-.roundHover:hover {
-	background-color: rgba(1, 123, 189, 0.4);
+.featureContentRow {
+	background-color: #EBEBEB				!important;				
 }
-
 
 
 
@@ -93,11 +92,11 @@ body {
 	text-align: center;
 }
 
-
-/*************************  DELETE ROUND BUTTON  ********************************/
-
-.deleteRound {
-	text-align: center;
-	vertical-align: center;
+.noUserInput {
+	background-color: none; 
+	border-style: none;
+	border-color: none;
+	outline: none;
 }
+
 

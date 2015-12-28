@@ -75,64 +75,62 @@
                 <input type="hidden" id="courseID" name='courseID' value=''>
                 <input type="hidden" id="courseNameVal" name='courseName' value=''><br>
 
-                        <table class='table'>
-
                                 <div class='row row-eq-height'>
 
-                                        <div class='col-xs-1 col-md-1 col-lg-1'>
+                                        <div class='col-xs-2 col-md-1 col-md-offset-3 col-lg-1 col-lg-offset-3'>
 
                                                <p class='scoreHeader'>Hole</p><br>
 
                                                <!-- Hole Number 1 - 18 -->
-                                               <div class='form-control'>1</div>
-                                               <div class='form-control'>2</div>
-                                               <div class='form-control'>3</div>
-                                               <div class='form-control'>4</div>
-                                               <div class='form-control'>5</div>
-                                               <div class='form-control'>6</div>
-                                               <div class='form-control'>7</div>
-                                               <div class='form-control'>8</div>
-                                               <div class='form-control'>9</div><br>
-                                               <div class='form-control'>10</div>                     
-                                               <div class='form-control'>11</div>
-                                               <div class='form-control'>12</div>
-                                               <div class='form-control'>13</div>
-                                               <div class='form-control'>14</div>
-                                               <div class='form-control'>15</div>
-                                               <div class='form-control'>16</div>
-                                               <div class='form-control'>17</div>
-                                               <div class='form-control'>18</div>
+                                               <div class='form-control noUserInput'>1</div>
+                                               <div class='form-control noUserInput'>2</div>
+                                               <div class='form-control noUserInput'>3</div>
+                                               <div class='form-control noUserInput'>4</div>
+                                               <div class='form-control noUserInput'>5</div>
+                                               <div class='form-control noUserInput'>6</div>
+                                               <div class='form-control noUserInput'>7</div>
+                                               <div class='form-control noUserInput'>8</div>
+                                               <div class='form-control noUserInput'>9</div><br>
+                                               <div class='form-control noUserInput'>10</div>                     
+                                               <div class='form-control noUserInput'>11</div>
+                                               <div class='form-control noUserInput'>12</div>
+                                               <div class='form-control noUserInput'>13</div>
+                                               <div class='form-control noUserInput'>14</div>
+                                               <div class='form-control noUserInput'>15</div>
+                                               <div class='form-control noUserInput'>16</div>
+                                               <div class='form-control noUserInput'>17</div>
+                                               <div class='form-control noUserInput'>18</div>
                                         </div>
 
-                                        <div class='col-xs-1 col-md-1 col-lg-1'>
+                                        <div class='col-xs-2 col-md-1 col-lg-1'>
 
                                                 <p class='scoreHeader'>Par</p><br>
 
                                                 <!-- Par for Holes 1 - 18 -->                                                                                        
-                                                        <div id='par1' class='form-control'></div>
-                                                        <div id='par2' class='form-control'></div>                                              
-                                                        <div id='par3' class='form-control'></div>
-                                                        <div id='par4' class='form-control'></div>
-                                                        <div id='par5' class='form-control'></div>
-                                                        <div id='par6' class='form-control'></div>
-                                                        <div id='par7' class='form-control'></div>
-                                                        <div id='par8' class='form-control'></div>
-                                                        <div id='par9' class='form-control'></div><br>
-                                                        <div id='par10' class='form-control'></div>
-                                                        <div id='par11' class='form-control'></div>
-                                                        <div id='par12' class='form-control'></div>
-                                                        <div id='par13' class='form-control'></div>
-                                                        <div id='par14' class='form-control'></div>
-                                                        <div id='par15' class='form-control'></div>
-                                                        <div id='par16' class='form-control'></div>
-                                                        <div id='par17' class='form-control'></div>
-                                                        <div id='par18' class='form-control'></div>
+                                                        <div id='par1' class='form-control noUserInput'></div>
+                                                        <div id='par2' class='form-control noUserInput'></div>                                              
+                                                        <div id='par3' class='form-control noUserInput'></div>
+                                                        <div id='par4' class='form-control noUserInput'></div>
+                                                        <div id='par5' class='form-control noUserInput'></div>
+                                                        <div id='par6' class='form-control noUserInput'></div>
+                                                        <div id='par7' class='form-control noUserInput'></div>
+                                                        <div id='par8' class='form-control noUserInput'></div>
+                                                        <div id='par9' class='form-control noUserInput'></div><br>
+                                                        <div id='par10' class='form-control noUserInput'></div>
+                                                        <div id='par11' class='form-control noUserInput'></div>
+                                                        <div id='par12' class='form-control noUserInput'></div>
+                                                        <div id='par13' class='form-control noUserInput'></div>
+                                                        <div id='par14' class='form-control noUserInput'></div>
+                                                        <div id='par15' class='form-control noUserInput'></div>
+                                                        <div id='par16' class='form-control noUserInput'></div>
+                                                        <div id='par17' class='form-control noUserInput'></div>
+                                                        <div id='par18' class='form-control noUserInput'></div>
 
                                         </div>
 
                                         <div class='col-xs-3 col-md-2 col-lg-2'>
 
-                                               <p class='scoreHeader'>Gross Score</p><br>
+                                               <p class='scoreHeader'>Gross</p><br>
 
                                                 <!-- Score for Holes 1 - 9 -->
                                                 <input type="number" name='score[]' id='score1' class="form-control" placeholder="1st hole" aria-describedby="sizing-addon2" min='1' max='10' required='true' onblur='calc1()'>
@@ -161,7 +159,7 @@
 
                                                 <!-- Number of Putts Holes 1 - 18 -->
 
-                                                <p class='scoreHeader'>No. of Putts</p><br>
+                                                <p class='scoreHeader'>Putts</p><br>
 
                                                 <input type="number" name='putts[]' id='putts1' class="form-control" placeholder="1st hole" aria-describedby="sizing-addon2" min='0' max='' required='true'>
                                                 <input type="number" name='putts[]' id='putts2' class="form-control" placeholder="2nd hole" aria-describedby="sizing-addon2" min='0' max='10' required='true'>
@@ -184,29 +182,29 @@
 
                                         </div>
 
-                                        <div class='col-xs-1 col-md-1 col-lg-1'>
+                                        <div class='col-xs-2 col-md-1 col-lg-1'>
 
-                                              <p class='scoreHeader'> + / - </p><br>
+                                              <p class='scoreHeader'>+ / -</p><br>
 
                                           <!-- Nett Score Holes 1 - 18 -->
-                                                        <div id='nett1' class='form-control'></div>
-                                                        <div id='nett2' class='form-control'></div>                                              
-                                                        <div id='nett3' class='form-control'></div>
-                                                        <div id='nett4' class='form-control'></div>
-                                                        <div id='nett5' class='form-control'></div>
-                                                        <div id='nett6' class='form-control'></div>
-                                                        <div id='nett7' class='form-control'></div>
-                                                        <div id='nett8' class='form-control'></div>
-                                                        <div id='nett9' class='form-control'></div><br>
-                                                        <div id='nett10' class='form-control'></div>
-                                                        <div id='nett11' class='form-control'></div>
-                                                        <div id='nett12' class='form-control'></div>
-                                                        <div id='nett13' class='form-control'></div>
-                                                        <div id='nett14' class='form-control'></div>
-                                                        <div id='nett15' class='form-control'></div>
-                                                        <div id='nett16' class='form-control'></div>
-                                                        <div id='nett17' class='form-control'></div>
-                                                        <div id='nett18' class='form-control'></div>
+                                                        <div id='nett1' class='form-control noUserInput'></div>
+                                                        <div id='nett2' class='form-control noUserInput'></div>                      
+                                                        <div id='nett3' class='form-control noUserInput'></div>
+                                                        <div id='nett4' class='form-control noUserInput'></div>
+                                                        <div id='nett5' class='form-control noUserInput'></div>
+                                                        <div id='nett6' class='form-control noUserInput'></div>
+                                                        <div id='nett7' class='form-control noUserInput'></div>
+                                                        <div id='nett8' class='form-control noUserInput'></div>
+                                                        <div id='nett9' class='form-control noUserInput'></div><br>
+                                                        <div id='nett10' class='form-control noUserInput'></div>
+                                                        <div id='nett11' class='form-control noUserInput'></div>
+                                                        <div id='nett12' class='form-control noUserInput'></div>
+                                                        <div id='nett13' class='form-control noUserInput'></div>
+                                                        <div id='nett14' class='form-control noUserInput'></div>
+                                                        <div id='nett15' class='form-control noUserInput'></div>
+                                                        <div id='nett16' class='form-control noUserInput'></div>
+                                                        <div id='nett17' class='form-control noUserInput'></div>
+                                                        <div id='nett18' class='form-control noUserInput'></div>
                                         </div>
 
 
@@ -232,10 +230,9 @@
                                                 <input type="hidden" name='nett[]' id='hiddenNett18' class="form-control" placeholder="18th hole" aria-describedby="sizing-addon2" required='true'>
 
 
-                                </div>
+                                </div><br>
 
-                        </table><br>
-                        <button class="btn btn-default">Save Score</button>
+                        <button class="userInfoBtn btn btn-default">Save Score</button>
                     </form><br>
 
 
@@ -244,15 +241,6 @@
 
 
     </div> <!-- for container class -->
-
-
-
-        <!-- JQUERY TO EXTRACT COURSE ID FROM URL BAR AND PUT IN HIDDEN FIELD -->
-
-        <script>
-
-        </script>
-
 
 
     </body>

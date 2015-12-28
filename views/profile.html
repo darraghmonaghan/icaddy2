@@ -97,7 +97,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
+                                <tr class='featureContentRow'>
                                     <td>No.</td>
                                     <td id='ouchCount'></td>
                                     <td id='doubleBogeyCount'></td>
@@ -108,7 +108,7 @@
                                     <td id='albatrosCount'></td> 
                                     <td id='aceCount'></td>
                                 </tr>
-                                <tr>    
+                                <tr class='featureContentRow'>    
                                     <td>%</td>
                                     <td id='ouchCountPercentage'></td>
                                     <td id='doubleBogeyCountPercentage'></td>
@@ -142,7 +142,7 @@
       <!-- Recent Scores Template -->
       <script type="text/template" id="scores-template">
                 
-                <tr class='roundHover'>
+                <tr class='roundHover featureContentRow'>
                     <td> <% var d = new Date(date), 
                                 fragments = [
                                         d.getDate(),

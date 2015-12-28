@@ -58,6 +58,29 @@
             $('#nett1').text(math);
             $('#hiddenNett1').val(math);
             maxPutts1();
+
+            if (math <= -3) {
+                $('#score1').css('background-color', 'DarkOrchid');
+                $('#score1').css('color', 'white');   
+            } else if (math === -2) {
+                $('#score1').css('background-color', 'DarkBlue');
+                $('#score1').css('color', 'white');   
+            } else if (math === -1) {
+                $('#score1').css('background-color', 'DodgerBlue');
+                $('#score1').css('color', 'white'); 
+            } else if (math === 0) {
+                $('#score1').css('background-color', 'white');
+                $('#score1').css('color', 'gray');  
+            } else if (math === 1) {
+                $('#score1').css('background-color', 'yellow');
+                $('#score1').css('color', 'gray');  
+            } else if (math === 2) {
+                $('#score1').css('background-color', 'orange');
+                $('#score1').css('color', 'white');                  
+            } else if (math >= 3) {
+                $('#score1').css('background-color', 'red');
+                $('#score1').css('color', 'white');  
+            }
      }
 
      function calc2() {
