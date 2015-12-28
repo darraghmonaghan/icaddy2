@@ -15,20 +15,29 @@
         
     </head>
     <body>
-    <div class='container'>            
+    <div class='container userInfo'>            
 
-        <h1>New User Sign Up Page</h1>
+        <div class='row'>
 
-            <form method='POST' action='/signup' id='new-user'>
+            <div class='col-xs-8 col-xs-offset-2 col-md-6 col-md-offset-3'>   
 
-                <input placeholder="Firstname" class="textbox-n" type="text" name='firstname' required='true'>
-                <input placeholder="Surname" class="textbox-n" type="text" name='surname' required='true'>
-                <input placeholder="E-Mail Address" class="textbox-n" type="text" name='email' required='true'>
-                <input placeholder="Password" class="textbox-n" type="password" name='password' required='true'>
-            
-                <button class="btn btn-default form-control">Complete Sign Up</button>
+                <form method='POST' action='/signup' id='new-user'>
 
-            </form>
+                    <input placeholder="Firstname" class="form-control" type="text" name='firstname' required='true'><br>
+                    <input placeholder="Surname" class="form-control" type="text" name='surname' required='true'><br>
+                    <input placeholder="E-Mail Address" class="form-control" type="text" name='email' required='true'><br>
+                    <input placeholder="Password" class="form-control" type="password" name='password' required='true'><br>
+                
+                    <button class="userInfoBtn btn btn-default form-control">Complete Sign Up</button>
+
+                </form>
+
+                    <br>
+                    <p><a href='/login'>Already got an account? Login now</a></p>
+
+            </div>
+
+        </div>
 
     </div>
     </body>

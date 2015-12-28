@@ -11,7 +11,7 @@ body {
 
 
 
-/*   NAVBAR RELATED    */
+/*****************   NAVBAR RELATED    *******************/
 
 .container-fluid {
 	border-color: #EFEFEF;
@@ -46,20 +46,22 @@ body {
 	background-color: #EFEFEF;
 }
 
+
+/*****  Navbar Hover Related  ******/
+
 .navbarHover:hover {
-	background-color: yellow;
+	background-color: rgba(195, 81, 81, 0.4)		!important;
+	text-decoration: underline;
 }
 
 
 
 
-
-/*  FEATURE BOXES   */
+/********************  FEATURE BOXES   *********************/
 
 .featureHeader {
 	background-color: rgb(195, 81, 81)		!important;
 	font-size: 1.1em						!important;
-	/*font-weight: 700					 	!important;*/
 	color: #EFEFEF 							!important; 
 }
 
@@ -78,15 +80,24 @@ body {
 
 
 
-/*    Specific Course Performance Graph    */
+/***************  USER INFO BOXES  **********************/
 
-#courseGraph {
-	width: 95%;
-	margin-left: auto;
-	margin-right: auto;
+.userInfo {
+	margin-top: 15%;
+	text-align: center;
+}
+
+.userInfoBtn {
+	background-color: rgba(195, 81, 81, 0.4);
+	width: 100%;
+	text-align: center;
 }
 
 
+/*************************  DELETE ROUND BUTTON  ********************************/
 
-
+.deleteRound {
+	text-align: center;
+	vertical-align: center;
+}
 

@@ -43,11 +43,11 @@
                   <li class="dropdown navbarHover">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">OPTIONS<span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                      <li><a href="/mycourses">Submit A New Score</a></li>
-                      <li><a href="/scorelist">View All Scores</a></li>
-                      <li><a href="/scorecard">New Scorecard Template</a></li>
+                      <li><a href="/mycourses" class="navbarHover">Submit A New Score</a></li>
+                      <li><a href="/scorelist" class="navbarHover">View All Scores</a></li>
+                      <li><a href="/scorecard" class="navbarHover">New Scorecard Template</a></li>
                       <li role="separator" class="divider"></li>
-                      <li><a href="/logout">Logout</a></li>
+                      <li><a href="/logout" class="navbarHover">Logout</a></li>
                     </ul>
                   </li>
                 </ul>
@@ -154,7 +154,7 @@
                     <td> <a href="/performances/<%= course_id %>"><%= courseName %> </td>
                     <td> <a href="/performance/<%= _id %>"><%= totalScore %> </td>
                     <td> <%= totalPutts %> </td>
-                    <td> <div class="btn-group btn-group-xs close" role="group" aria-label="..." onclick='deleteScore(this)' data-id=<%= _id %> >X</div> </td>
+                    <td style='text-align: left;'> <div style='float: left' align='left' "btn-group btn-group-xs close" role="group" aria-label="..." onclick='deleteScore(this)' data-id=<%= _id %> >X</div> </td>
 
                 </tr>
 

@@ -15,6 +15,7 @@
 
         <link rel="stylesheet" href="/vendor/bootstrap/dist/css/bootstrap.min.css">        
         <link rel="stylesheet" type="text/css" href="/static/css/index.css">
+        <link rel="stylesheet" type="text/css" href="/static/css/course.css">
 
 
     </head>
@@ -40,15 +41,15 @@
               <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 
                 <ul class="nav navbar-nav navbar-right">
-                  <li><a href="/profile">My Profile</a></li>
-                  <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Golfer Options<span class="caret"></span></a>
+                  <li class='navbarHover'><a href="/profile">PROFILE</a></li>
+                  <li class="dropdown navbarHover">
+                    <a href="#" class="navbarHover dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">OPTIONS<span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                      <li><a href="/mycourses">Submit A New Score</a></li>
-                      <li><a href="/scorelist">View All Scores</a></li>
-                      <li><a href="/scorecard">Create a New Scorecard Template</a></li>
+                      <li><a href="/mycourses" class="navbarHover">Submit A New Score</a></li>
+                      <li><a href="/scorelist" class="navbarHover">View All Scores</a></li>
+                      <li><a href="/scorecard" class="navbarHover">Create a New Scorecard Template</a></li>
                       <li role="separator" class="divider"></li>
-                      <li><a href="/logout">Logout</a></li>
+                      <li><a href="/logout" class="navbarHover">Logout</a></li>
                     </ul>
                   </li>
                 </ul>
@@ -284,8 +285,6 @@
 
 
 
-
-
       <script type="text/template" id="rounds-template">
                 <tr>
                     <td> <% var d = new Date(date), 
@@ -298,14 +297,8 @@
                      %> </td>
                     <td> <%= totalScore %> </td>
                     <td> <%= totalPutts %> </td>
-                    <td> <div class="btn-group btn-group-xs close" role="group" aria-label="..." onclick='deleteScore(this)' data-id=<%= _id %> >X</div> </td>
+                    <td style='text-align: left;'> <div style='float: left' align='left' class="btn-group btn-group-xs close" role="group" aria-label="..." onclick='deleteScore(this)' data-id=<%= _id %> >X</div> </td>
                 </tr>
-
-      </script>
-
-      <script>
-
-
 
       </script>
 

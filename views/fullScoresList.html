@@ -35,15 +35,15 @@
               <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 
                 <ul class="nav navbar-nav navbar-right">
-                  <li><a href="/profile">My Profile</a></li>
-                  <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Golfer Options<span class="caret"></span></a>
+                  <li class='navbarHover'><a href="/profile">PROFILE</a></li>
+                  <li class="dropdown navbarHover">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">OPTIONS<span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                      <li><a href="/mycourses">Submit A New Score</a></li>
-                      <li><a href="/scorelist">View All Scores</a></li>
-                      <li><a href="/scorecard">Create a New Scorecard Template</a></li>
+                      <li><a class='navbarHover' href="/mycourses">Submit A New Score</a></li>
+                      <li><a class='navbarHover' href="/scorelist">View All Scores</a></li>
+                      <li><a class='navbarHover' href="/scorecard">Create a New Scorecard Template</a></li>
                       <li role="separator" class="divider"></li>
-                      <li><a href="/logout">Logout</a></li>
+                      <li><a class='navbarHover' href="/logout">Logout</a></li>
                     </ul>
                   </li>
                 </ul>
@@ -89,7 +89,7 @@
                     <td> <a href="/performances/<%= course_id %>"><%= courseName %> </td>
                     <td> <a href="/performance/<%= _id %>"><%= totalScore %> </td>
                     <td> <%= totalPutts %> </td>
-                    <td> <div class="btn-group btn-group-xs close" role="group" aria-label="..." onclick='deleteScore(this)' data-id=<%= _id %> >X</div> </td>
+                    <td style='text-align: left;'> <div style='float: left' align='left' class="btn-group btn-group-xs close" role="group" aria-label="..." onclick='deleteScore(this)' data-id=<%= _id %> >X</div> </td>
 
                 </tr>
       </script>
