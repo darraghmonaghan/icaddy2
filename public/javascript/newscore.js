@@ -1,4 +1,4 @@
-
+    
         function displayAll(data) {
                 // console.log(data);
                 var info = data;

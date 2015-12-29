@@ -205,6 +205,7 @@ app.get("/:course/newscore", function (req, res) {
 
 
 app.post("/:course/newscore", function (req, res) {
+	// console.log(req.body);
 	var date = req.body.date;
 	var playingPartners = req.body.playingPartners;
 	var comments = req.body.comments;
@@ -248,29 +249,33 @@ app.post("/:course/newscore", function (req, res) {
 							user.doubleBogeyCount++;
 						} else if (number >= 3 ) {							// ending here with 'Ouches' //
 							user.ouchCount++;
-						} user.save(function (err, success) {															// NEED TO REFACTOR TO REDUCE DB ORDERS - PUT OUTSIDE FOR LOOP? //
+						} 
+					}
+					user.save(function (err, success) {															// NEED TO REFACTOR TO REDUCE DB ORDERS - PUT OUTSIDE FOR LOOP? //
 							if (err) {
 								console.log("error in saving Par / Bogey count for user: " + err);
 							} else {
-								// console.log('user par and bogey count saved: ' + success);
+								console.log('user par and bogey count saved: ' + success);
 							}
-						})
-					}
+					});
+
+
 																			// checking for Holes in One //
 					for (y = 0; y < score.length; y++) {
 						var number = parseInt(score[y]);
-						console.log('THE SCORE IS: ' + number);
-						console.log(typeof(number));
+						// console.log('THE SCORE IS: ' + number);
+						// console.log(typeof(number));
 						if (number === 1) {
 							user.aceCount++;
-						} user.save(function (err, success) {
+						} 
+					}
+					user.save(function (err, success) {
 							if (err) {
 								console.log('error in saving Ace count: ' + err);
 							} else {
 								console.log('ace count saved successfully: ' + success)
 							}
-						})
-					}
+					});
 				}
 			});
             user.gamesList.push(newScore._id);		// Push the ID of the game to the User profile //
@@ -278,13 +283,13 @@ app.post("/:course/newscore", function (req, res) {
                     if (err) {
                         return console.log(err);
                     }
-                    console.log("2)" + user.firstname + "'s new game has been entered!");
-                    console.log('3) Ending par count here: ');
-					console.log(user.parCount);
-					console.log('4) Ending bogey count here: ');
-					console.log(user.bogeyCount);
-                    console.log('5) Ending birdie count here: ');
-					console.log(user.birdieCount);
+     //                console.log("2)" + user.firstname + "'s new game has been entered!");
+     //                console.log('3) Ending par count here: ');
+					// console.log(user.parCount);
+					// console.log('4) Ending bogey count here: ');
+					// console.log(user.bogeyCount);
+     //                console.log('5) Ending birdie count here: ');
+					// console.log(user.birdieCount);
                 });
 			res.redirect('/profile');
 	});

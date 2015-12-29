@@ -87,6 +87,10 @@ body {
 
 /***************  USER INFO BOXES  **********************/
 
+.info {					
+	color: gray;
+}
+
 .userInfo {
 	margin-top: 15%;
 	text-align: center;

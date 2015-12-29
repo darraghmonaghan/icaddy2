@@ -8,7 +8,7 @@ var bcrypt = require('bcrypt');
 var userSchema = new Schema ({
 	firstname: {type: String, required: true},
 	surname: {type: String, required: true},
-	email: {type: String, required: true},
+	email: {type: String, required: true, unique: true},
 	passwordDigest: {type: String, required: true},
 	courseList: [{type: Schema.Types.ObjectId, ref: 'Course'}], // Course ID's
 	gamesList: [{type: Schema.Types.ObjectId, ref: 'Game'}], // Game ID's
@@ -53,9 +53,10 @@ userSchema.statics.authenticate = function (email, password, cb) {
   this.findOne({email: email}, function (err, user) {
     // throw error if can't find user
     if (user === null) {
-      cb("Can\'t find user with that email", null);
+      console.log("Can't find user with that email: " + null);
     // if found user, check if password is correct
     } else if (user.checkPassword(password)) {
+      console.log("user found, checking password");
       // the user is found & password is correct, so execute callback
       // pass no error, just the user to the callback
       cb(null, user);
