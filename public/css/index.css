@@ -75,7 +75,13 @@ body {
 	background-color: #EBEBEB				!important;				
 }
 
+.input-group-addon {
+	min-width: 180px;
+}
 
+.form-control {
+	color: gray;
+}
 
 
 
@@ -90,6 +96,11 @@ body {
 	background-color: rgba(195, 81, 81, 0.4);
 	width: 100%;
 	text-align: center;
+}
+
+.userInfoBtn:hover {
+	background-color: rgb(195, 81, 81);
+	color: white;
 }
 
 .noUserInput {
