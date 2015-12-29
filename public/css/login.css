@@ -1,11 +1,7 @@
 
 
-
-
-
-
-
-
-
-/*  Div alignment  */
+#loginPic {
+	background-image: url('../images/login.png');
+	background-size: cover;
+}
 
