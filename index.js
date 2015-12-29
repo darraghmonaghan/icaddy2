@@ -283,13 +283,6 @@ app.post("/:course/newscore", function (req, res) {
                     if (err) {
                         return console.log(err);
                     }
-     //                console.log("2)" + user.firstname + "'s new game has been entered!");
-     //                console.log('3) Ending par count here: ');
-					// console.log(user.parCount);
-					// console.log('4) Ending bogey count here: ');
-					// console.log(user.bogeyCount);
-     //                console.log('5) Ending birdie count here: ');
-					// console.log(user.birdieCount);
                 });
 			res.redirect('/profile');
 	});
@@ -371,8 +364,8 @@ app.get("/performances/:course", function (req, res) {
 
 
 
-
 // start the server
-app.listen(3000, function () {
-    console.log("Yeah Buddy! head to localhost:3000/");
+app.listen(process.env.PORT || 3000, function () {
+    console.log("Yeah Buddy! head to:", http.address().port);
 });
+
