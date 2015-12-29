@@ -366,6 +366,6 @@ app.get("/performances/:course", function (req, res) {
 
 // start the server
 app.listen(process.env.PORT || 3000, function () {
-    console.log("Yeah Buddy! head to:", http.address().port);
+    console.log("Yeah Buddy! head to:", this.address().port, app.settings.env);
 });
 
