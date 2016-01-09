@@ -12,6 +12,7 @@
         <link rel="stylesheet" type="text/css" href="/static/css/index.css">
         <link rel="stylesheet" type="text/css" href="/static/css/login.css">
         <link href='https://fonts.googleapis.com/css?family=Pontano+Sans' rel='stylesheet' type='text/css'>
+		<link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
 
         <script type="text/javascript" src="http://code.jquery.com/jquery-2.1.3.min.js"></script>
 
@@ -21,15 +22,28 @@
     <div class='container'> 
 
             <div class='container userInfo'>
+
+            	<div class='row'>
+
+            		<div class='col-xs-10 col-xs-offset-1 col-md-8 col-md-offset-2'>
+            			<h1 class='textStroke'>i<span class='detail'>.</span>Caddy</h1><br>
+            			<h2 class='textStroke'>Your Game<span class='detail'>.</span> Your Scores<span class='detail'>.</span> Your Improvements</h2><hr class='detail'>
+            			<h3 class='textStroke'>A Free Score Database and Analytics Platform.</h3>
+            		</div>
+
+            	</div><br>
+
+
+
                 <div class='row'> 
-                    <div class='col-xs-8 col-xs-offset-2 col-md-6 col-md-offset-3'> 
+                    <div class='col-xs-6 col-xs-offset-3 col-md-4 col-md-offset-4'> 
                         <form method='POST' action='/login'>
                             <input placeholder="E-Mail Address" class="form-control" type="text" name='email' required='true' value='demo@demo.com'><br>
                             <input placeholder="Password" class="form-control" type="password" name='password' required='true' value='123'><br><br>
-                            <button class="userInfoBtn btn btn-default col-md-12">Login</button>
+                            <button id='loginBtn' class="detail btn btn-default col-md-12">Login</button>
                         </form>
                         
-                            <br>
+                            <br><br>
                             <p><a href='/signup'>Sign Up Now</a></p>
                     </div>
                 </div>

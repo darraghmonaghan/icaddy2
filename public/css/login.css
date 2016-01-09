@@ -1,7 +1,68 @@
 
 
 #loginPic {
-	background-image: url('../images/login.png');
-	background-size: cover;
+	background-image: url('../images/scorecard.jpg');
 }
 
+.textStroke {
+    text-shadow:
+    -1px -1px 0 black,
+    1px -1px 0 black,
+    -1px 1px 0 black,
+    1px 1px 0 black;	
+}
+
+
+
+h1 {
+	font-family: 'Raleway', sans-serif;
+	font-weight: 700;
+	font-size: 500%;
+	color: white;
+}
+
+h2 {
+	font-family: 'Raleway', sans-serif;
+	font-weight: 700;
+	font-size: 250%;
+	color: white;
+}
+
+
+h3 {
+	font-family: 'Raleway', sans-serif;
+	font-weight: 700;
+	font-size: 200%;
+	color: white;
+	text-decoration: italic;
+}
+
+.detail {
+	color: orange;
+	font: white;
+}
+
+#loginBtn {
+	background-color: orange;
+	color: white;
+}
+
+#loginBtn:hover {
+	background-color: white;
+	color: orange;
+	text-decoration: bold;
+}
+
+.form-control {
+	background-color: rgba(250, 170, 22, 0.3);
+	color: black;
+}
+
+
+
+hr {
+    border: 0;
+    height: 1px;
+    background: #3a3d41;
+    background-image: linear-gradient(to right, #ccc, #333, #ccc);
+}
