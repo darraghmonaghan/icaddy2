@@ -148,34 +148,34 @@ app.get('/scorecard', function (req, res) {
 
 // REDUNDANT ROUTE ??? //
 
-app.post('/scorecard', function (req, res) {						
-	var submission = req.body;
-	var newCourse = new db.Course(submission);
-	console.log('request body info here: ');
-	console.log(submission);
+// app.post('/scorecard', function (req, res) {						
+// 	var submission = req.body;
+// 	var newCourse = new db.Course(submission);
+// 	console.log('request body info here: ');
+// 	console.log(submission);
 
-    db.User.findOne({                 // querying DB to find the current user via the Session ID //
-                _id: req.session.userId
-            }, function(err, user) {
+//     db.User.findOne({                 // querying DB to find the current user via the Session ID //
+//                 _id: req.session.userId
+//             }, function(err, user) {
 
-			newCourse.save(function (err, course) {
-				if (err) {
-					console.log('error submitting new score to the DB: ' + err);
-				} else {
-					console.log('new score successfully saved to the DB: ' + course);
-				}
-			});
-            user.courseList.push(newCourse._id);
-            user.save(function (err, success) {
-                    if (err) {
-                        return console.log(err);
-                    }
-                    console.log(user.firstname + "'s new game has been entered!");
-                	// console.log(success);
-                });
-			res.redirect('/profile');
-	});
-});
+// 			newCourse.save(function (err, course) {
+// 				if (err) {
+// 					console.log('error submitting new score to the DB: ' + err);
+// 				} else {
+// 					console.log('new score successfully saved to the DB: ' + course);
+// 				}
+// 			});
+//             user.courseList.push(newCourse._id);
+//             user.save(function (err, success) {
+//                     if (err) {
+//                         return console.log(err);
+//                     }
+//                     console.log(user.firstname + "'s new game has been entered!");
+//                 	// console.log(success);
+//                 });
+// 			res.redirect('/profile');
+// 	});
+// });
 
 
 
@@ -221,7 +221,9 @@ app.post("/:course/newscore", function (req, res) {
 		return parseInt(a) + parseInt(b);
 	})
 
-    db.User.findOne({                 				// querying DB to find the current user via the Session ID //
+
+	// Querying DB to find the current user via the Session ID //
+    db.User.findOne({                 				
                 _id: req.session.userId
             }, function (err, user) {
 
@@ -232,7 +234,8 @@ app.post("/:course/newscore", function (req, res) {
 				} else {
 					console.log('1) new score successfully saved to the DB: ' + game);
 					
-					// NET SCORE TALLYING HERE //	
+					// NET SCORE TALLYING HERE //
+
 					for (i = 0; i < nettScore.length; i++) {							
 						var number = parseInt(nettScore[i])					// parsing string data into integer for comparison purposes //
 						if (number === -3) {								// Starting here with Alatros //
@@ -251,16 +254,10 @@ app.post("/:course/newscore", function (req, res) {
 							user.ouchCount++;
 						} 
 					}
-					user.save(function (err, success) {															// NEED TO REFACTOR TO REDUCE DB ORDERS - PUT OUTSIDE FOR LOOP? //
-							if (err) {
-								console.log("error in saving Par / Bogey count for user: " + err);
-							} else {
-								console.log('user par and bogey count saved: ' + success);
-							}
-					});
 
 
-																			// checking for Holes in One //
+					// checking for Holes in One //
+
 					for (y = 0; y < score.length; y++) {
 						var number = parseInt(score[y]);
 						// console.log('THE SCORE IS: ' + number);
@@ -269,13 +266,6 @@ app.post("/:course/newscore", function (req, res) {
 							user.aceCount++;
 						} 
 					}
-					user.save(function (err, success) {
-							if (err) {
-								console.log('error in saving Ace count: ' + err);
-							} else {
-								console.log('ace count saved successfully: ' + success)
-							}
-					});
 				}
 			});
             user.gamesList.push(newScore._id);		// Push the ID of the game to the User profile //
