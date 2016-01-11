@@ -1,22 +1,26 @@
 
+
 function getData() {
-  $.get('/user.json', function (data) {
-    var user = JSON.parse(data);
-    console.log('Data received through AJAX in JSON format: ' + user);
-    $('#hello').append(user.firstname);    // Get request and then JQuery to welcome user by firstname //
+	$.get('/user.json', function (data) {
+		var user = JSON.parse(data);
+		var games = user.gamesList;
+		var scoresTemplate = _.template($('#scores-template').html());
+		var xyz = games.length - 1;
 
-    var games = user.gamesList;
+		for (i = xyz; i >= 0; --i) {
+			printGame(games[i]);
+		}
 
-	  var scoresTemplate = _.template($('#scores-template').html());
-		
-		games.forEach(function(game){
-      console.log(game);
-			var scoreHtml = scoresTemplate(game);
-			$("#scores-placeholder").append(scoreHtml);
-		});
+		function printGame(game) {
+		    var scoreHtml = scoresTemplate(game);
+		    $("#scores-placeholder").append(scoreHtml);            
+		}
+	
 	});
-};
+}
 
+
+// CALLING THE FUNCTION TO GET BASE DATA //
 
 $(function() {
 

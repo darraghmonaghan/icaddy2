@@ -126,11 +126,12 @@ $(document).ready(function () {
       var games = user.gamesList;
 	  var scoresTemplate = _.template($('#scores-template').html());
       console.log(games);
+      var xyz = games.length - 1;
 		
-        for (i = 0; i <= 4; i++) {
+        for (i = xyz; i >= (xyz - 4); --i) {
             printGame(games[i]);
             console.log(games[i]);
-        }   
+        }
 
         function printGame(game) {
             var scoreHtml = scoresTemplate(game);
